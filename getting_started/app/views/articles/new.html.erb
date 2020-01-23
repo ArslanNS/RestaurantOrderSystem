@@ -2,6 +2,8 @@
 
 <%= simple_form_for @article do |f| %>
   <%= f.input :title %>
-  <%= f.text :text %>
+  <br>
+  <%= f.input :text, as: :text %>
+  <br>
   <%= f.button :submit %>
 <% end %>
