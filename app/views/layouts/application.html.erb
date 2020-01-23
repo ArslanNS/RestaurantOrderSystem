@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            <%= link_to "Blog", new_article_path %>
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <div style="background-color: #2E2F30; width: 100%; color: white;">
+      <div class="container" style="padding: 20px;">
+        <%= link_to "Add Article", new_article_path %>
+      </div>
+    </div>
+
     <%= yield %>
   </body>
 </html>
