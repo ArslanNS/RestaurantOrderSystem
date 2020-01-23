@@ -10,16 +10,16 @@ This is the branch in which I will develop my understanding of Ruby, and the Rai
 ### Deployment instructions
 
 Navigate to project folder (contains "app").
-```ruby
+```
 cd ~/blog
 ```
 
 Run server locally.
-```ruby
+```
 rails s
 ```
 
-Navigate to [localhost:3000](localhost:3000).
+Navigate to [localhost:3000](http://localhost:3000).
 
 ### Contents
 * ~/blog (a simple blog to develop my understanding of the RoR development process)
@@ -32,4 +32,4 @@ Navigate to [localhost:3000](localhost:3000).
 5. Use a database within the Rails API
 6. Connect front-end with database
 
-<img src="https://intranet.royalholloway.ac.uk/staff/assets/img/brand-toolkit/colour-logo-new.png" width="350" height="200" />
+<img src="https://intranet.royalholloway.ac.uk/staff/assets/img/brand-toolkit/colour-logo-new.png" width="350" height="185"/>
