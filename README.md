@@ -1,4 +1,4 @@
-# Learning Rails
+# Learning Rails: Hasseeb
 
 This is the branch in which I will develop my understanding of Ruby, and the Rails framework for the CS2810 Team Project module.
 
