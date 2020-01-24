@@ -28,7 +28,7 @@ Navigate to [localhost:3000](http://localhost:3000).
 1. ~~Setup Ruby on Rails~~
 2. ~~Create a simple blog~~
 3. ~~Push to git~~
-4. Process user input and return result
+4. ~~Process user input and return result~~
 5. Use a database within the Rails API
 6. Connect front-end with database<br/><br/>
 
