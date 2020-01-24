@@ -19,7 +19,7 @@ Run server locally.
 rails s
 ```
 
-Navigate to [localhost:3000](http://localhost:3000).
+Navigate to [My articles](http://localhost:3000/articles)
 
 ### Contents
 * ~/blog (a simple blog to develop my understanding of the RoR development process)
