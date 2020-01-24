@@ -1,0 +1,19 @@
+<br>
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+  <div class="container">
+    <p>
+      <label class="label"><%= form.label :title %></label>
+      <%= form.text_field :title, class: 'input' %>
+    </p>
+  <br>
+    <p>
+      <label class="label"><%= form.label :text %></label>
+      <%= form.text_area :text, class: 'textarea' %>
+    </p>
+  <br>
+    <p>
+      <%= form.submit :submit, class: 'button is-primary' %>
+    </p>
+  </div>
+
+<% end %>
