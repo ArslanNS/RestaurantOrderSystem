@@ -32,4 +32,4 @@ Navigate to [localhost:3000](http://localhost:3000).
 5. Use a database within the Rails API
 6. Connect front-end with database<br/><br/>
 
-<img src="https://intranet.royalholloway.ac.uk/staff/assets/img/brand-toolkit/colour-logo-new.png" width="350" height="185"/>
+<img src="https://intranet.royalholloway.ac.uk/staff/assets/img/brand-toolkit/colour-logo-new.png" width="175" height="92.5"/>
