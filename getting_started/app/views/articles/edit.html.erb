@@ -1,6 +1,6 @@
 <h1>Edit Article</h1>
 
-<%= simple_form_for @article, method: :update do |f| %>
+<%= simple_form_for @article, action: :update do |f| %>
   <% if @article.errors.any? %>
     <div id="error_explaination">
       <h2>
