@@ -1,0 +1,24 @@
+<h1>Edit Article</h1>
+
+<%= simple_form_for @article, method: :update do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explaination">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :title %>
+  <br>
+  <%= f.input :text, as: :text %>
+  <br>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to 'Back', articles_path %>
