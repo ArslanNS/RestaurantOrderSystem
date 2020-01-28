@@ -40,9 +40,14 @@
           <p class="title">Pay Bill</p>
           <p class="subtitle">Action button for paying your bill.</p>
         </article>
-        <article class="tile is-child notification is-dark" onclick="location.href='http://www.google.com';" style="cursor: pointer">
+        <article class="tile is-child notification is-dark" onclick="location.href='<%= new_user_session_path %>';" style="cursor: pointer">
           <p class="title">Staff Login</p>
           <p class="subtitle">Action button for staff logging in.</p>
+
+          <% if user_signed_in? %>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+          <% end %>
+
         </article>
       </div>
       <div class="tile is-parent">
