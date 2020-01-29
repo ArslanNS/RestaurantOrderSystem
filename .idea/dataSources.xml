@@ -25,5 +25,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1:5432/TeamProject2020_13_test</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="development" uuid="dd27e21b-c603-42a4-ab1d-2d6fce8e482f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Kalinco-Desktop\RubymineProjects\TeamProject2020_13\db\development.sqlite3</jdbc-url>
+    </data-source>
   </component>
 </project>
