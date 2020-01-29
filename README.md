@@ -1,24 +1,11 @@
-# README
+# Menu alteration
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This branch is where the database manipulation will be developed.
 
-Things you may want to cover:
+PostgreSQL version: 12.1
 
-* Ruby version
+Team: Hasseeb, Farhad
 
-* System dependencies
 
-* Configuration
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
