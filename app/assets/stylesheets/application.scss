@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+head{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 body{
   display: flex;
   flex-direction: column;
@@ -23,5 +28,4 @@ body{
 $footer-color: true;
 $footer-background-color: #ffff;
 $footer-padding: 3rem 1.5rem 3rem;
-
 @import "bulma";
