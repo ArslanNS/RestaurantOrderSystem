@@ -24,6 +24,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Bulma framework for front-end design
 gem 'bulma-rails', '~> 0.8.0'
 
+# Devise gem for user authentication
+gem 'devise'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

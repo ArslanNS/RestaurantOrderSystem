@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>TeamProject202013</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+    <title>TeamProject202013</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
 
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-</head>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
 
-<body>
-<%= yield %>
-</body>
+  <body>
+
+  <% flash.each do |type, msg| %>
+    <% if type == "notice" %>
+      <div class="notification is-success">
+        <button class="delete"></button>
+        <%= notice %>
+      </div>
+    <% elsif type == "alert" %>
+      <div class="notification is-danger">
+        <button class="delete"></button>
+        <%= alert %>
+      </div>
+    <% else %>
+        <div class="notification">
+          <button class="delete"></button>
+          <%= msg %>
+      </div>
+    <% end %>
+
+  <% end %>
+
+    <%= yield %>
+  </body>
 </html>
