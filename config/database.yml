@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: template1
+  database: templatemenu
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -83,3 +83,8 @@ production:
   database: menu_alteration_production
   username: menu_alteration
   password: <%= ENV['MENU_ALTERATION_DATABASE_PASSWORD'] %>
+
+
+
+
+  INSERT INTO table(id, name, description)VALUES(1, 'Pasta', 'Food');
