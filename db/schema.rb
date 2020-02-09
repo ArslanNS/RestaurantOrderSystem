@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(version: 2020_01_28_151912) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "help", primary_key: "tableid", id: :bigint, default: nil, force: :cascade do |t|
+    t.datetime "help_requested_at", precision: 6, null: false
+    t.datetime "help_acknowledged_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
