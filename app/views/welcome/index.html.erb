@@ -8,39 +8,28 @@
       <h2 class="subtitle">
         Table Ordering System
       </h2>
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-dark" onclick="location.href='http://www.google.com';" style="cursor: pointer">
+            <p class="title">Call Waiter</p>
+          </article>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Hero content: will be in the middle -->
 <div class="hero-body">
+  <div class="container">
     <div class="tile is-ancestor">
-      <!-- All other tile elements -->
-      <div class="tile is-vertical is-2 is-parent">
-        <!-- Add content or other tiles -->
-        <article class="waiterbutton tile is-child notification is-primary" onclick="location.href='http://www.google.com';" style="cursor: pointer">
-          <!-- Create content for Tile here -->
-          <p class="title">Call Waiter</p>
-        </article>
-        <article class="billbutton tile is-child notification is-primary" onclick="location.href='http://www.google.com';" style="cursor: pointer">
-          <!-- Create content for Tile here -->
-          <p class="title">Pay Bill</p>
-        </article>
-<!--        <article class="tile is-child notification is-dark" onclick="location.href='<%= new_user_session_path %>';" style="cursor: pointer">
-          <p class="title">Staff Login</p>
-          <p class="subtitle">Action button for staff logging in.</p>
-          <%# if user_signed_in? %>
-            <%#= link_to('Logout', destroy_user_session_path, method: :delete) %>
-          <%# end %>
-        </article>-->
+        <div class="tile is-parent">
+          <article class="foodbutton tile is-child notification is-light" onclick="location.href='/menu';" style="cursor: pointer">
+            <p class="title">View Menu and Order</p>
+            <p class="subtitle">Dive into our amazing menu.</p>
+          </article>
+        </div>
       </div>
-      <div class="tile is-parent">
-        <article class="foodbutton tile is-child notification is-light" onclick="location.href='/menu';" style="cursor: pointer">
-          <!-- Create content for Tile here -->
-          <p class="title">View Menu and Order</p>
-          <p class="subtitle">Dive into our amazing menu.</p>
-        </article>
-      </div>
-    </div>
+  </div>
 </div>
 
