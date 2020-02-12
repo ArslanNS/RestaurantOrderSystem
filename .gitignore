@@ -101,3 +101,8 @@ fabric.properties
 
 # Ignore MacOS .DS_Store
 .DS_Store
+
+.idea/.rakeTasks
+.idea/misc.xml
+
+yarn.lock
