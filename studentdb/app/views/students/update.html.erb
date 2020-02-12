@@ -1,0 +1,15 @@
+Enter new information
+
+<hr>
+
+<%= form_for @student do |f| %>
+
+  <%= f.text_field :name %><br>
+  <%= f.text_field :surname %><br>
+  <%= button_to "Submit", :method=> 'update' %>
+
+  <%= link_to "Edit", edit_students_url %>
+
+
+
+<% end %>
