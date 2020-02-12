@@ -13,6 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+// Set the colour for nav bar.
+$primary: #3097d9;
+
+.foodbutton{
+  background-image: url("https://images.pexels.com/photos/58722/pexels-photo-58722.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 50vh;
+}
+
 head{
   display: flex;
   flex-direction: column;
@@ -22,9 +34,8 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
 }
-
+$section-padding-medium: 3rem 1.5rem;
 $footer-color: true;
 $footer-background-color: #ffff;
 $footer-padding: 3rem 1.5rem 3rem;
