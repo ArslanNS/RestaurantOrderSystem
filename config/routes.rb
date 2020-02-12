@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  root 'pages#index'
-  get 'pages/menu'
+  get 'dashboard/index'
+
+  resources :foods
+
+  root 'dashboard#index'
 end
