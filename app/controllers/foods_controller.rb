@@ -20,6 +20,7 @@ class FoodsController < ApplicationController
 
   # GET /foods/1/edit
   def edit
+    @sections = Section.all
   end
 
   # POST /foods
