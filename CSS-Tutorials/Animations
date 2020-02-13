@@ -1,0 +1,22 @@
+#Link and Hover combined allow you to make the color change when the user is hovered over a link
+a:link {
+    color: hsl(36,50%,50%);
+}
+a:hover {
+    color: hsl(36,100%,50%);
+}
+
+#Transition allows you to make the effect happen as slow or fast as you'd like 
+transition: all .5s linear 0;
+
+#The following some useful transition options you can edit 
+transition-property
+transition-duration
+transition-timing-function
+transition-delay
+
+#Property allows you to choose what type of transition
+#Duration lets you choose how long the transition lasts for
+#Timing-function Lets you accelerate or deccelerate the speed
+#Delay lets you choose how long to wait until the transition takes place
+
