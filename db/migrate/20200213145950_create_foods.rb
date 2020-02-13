@@ -5,9 +5,8 @@ class CreateFoods < ActiveRecord::Migration[6.0]
       t.text :description
       t.text :allergens
       t.integer :calories
-      t.decimal :price
-      t.string :imgURL
-      t.boolean :isActive
+      t.float :price
+      t.boolean :active
 
       t.timestamps
     end

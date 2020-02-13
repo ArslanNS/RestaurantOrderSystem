@@ -5,15 +5,13 @@ one:
   description: MyText
   allergens: MyText
   calories: 1
-  price: 9.99
-  imgURL: MyString
-  isActive: false
+  price: 1.5
+  active: false
 
 two:
   name: MyString
   description: MyText
   allergens: MyText
   calories: 1
-  price: 9.99
-  imgURL: MyString
-  isActive: false
+  price: 1.5
+  active: false
