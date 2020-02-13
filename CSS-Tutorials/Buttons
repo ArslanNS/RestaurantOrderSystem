@@ -1,0 +1,33 @@
+#This is how you would create a button with curved edges but no borders.
+{
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+#To create a border around the button
+    border: 5px solid #8b2;
+
+#To create the button with any shaped ellipse
+{
+        background: #fff;
+        width: 100px;
+        height: 150px;
+        border-radius: 50px/100px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+}
+
+#To create a shadow behind the box 
+box-shadow: 5px 5px 3px 1px #999
+
+#First variable is left/right offset
+#Second is Up and Down
+#Third is the sharp(fade) of the shadow
+#Fourth is the size of the shadow
+#Fifth is color
+
+#For text shadows would be the same
+text-shadow: -2px 2px 2px #999;
+#Just no variable for the size of the shadow
