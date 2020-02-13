@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  table_id: 
+  call_time: 2020-02-11 15:21:30
+  call_accpet: 2020-02-11 15:21:30
+
+two:
+  table_id: 
+  call_time: 2020-02-11 15:21:30
+  call_accpet: 2020-02-11 15:21:30
