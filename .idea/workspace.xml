@@ -5,8 +5,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/menu-alteration.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/menu-alteration.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/foods_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/foods_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/foods/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/foods/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/foods/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/foods/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/foods/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/foods/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/foods/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/foods/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/foods/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/foods/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +44,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+  </component>
+  <component name="RubyModuleManagerSettings">
+    <option name="blackListedRootsPaths">
+      <list>
+        <option value="$PROJECT_DIR$" />
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Development" type="RailsRunConfigurationType" factoryName="Rails">
@@ -116,8 +129,7 @@
       <workItem from="1581594077756" duration="2973000" />
       <workItem from="1581597541419" duration="5110000" />
       <workItem from="1581605888385" duration="707000" />
-      <workItem from="1581614784171" duration="124000" />
-      <workItem from="1581614911785" duration="332000" />
+      <workItem from="1581617126258" duration="3658000" />
     </task>
     <servers />
   </component>
@@ -199,13 +211,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1581597584975" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1581604139787">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="505" y="251" width="670" height="662" key="search.everywhere.popup" timestamp="1581620542927">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
+    <state x="505" y="251" width="670" height="662" key="search.everywhere.popup/-1112.239.1112.811/0.23.1680.1027@0.23.1680.1027" timestamp="1581620542927" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1581604139787" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TeamProject2020_13@Development.rcov" NAME="Development Coverage Results" MODIFIED="1581615236682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="menu-alteration" />
-    <SUITE FILE_PATH="coverage/menu_alteration@Development.rcov" NAME="Development Coverage Results" MODIFIED="1581605913581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="menu-alteration" />
   </component>
 </project>

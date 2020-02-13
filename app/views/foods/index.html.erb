@@ -139,9 +139,9 @@
               <td><%= food.calories %></td>
               <td><%= food.price %></td>
               <td><%= food.active %></td>
-              <td><%= link_to 'Show', food %></td>
-              <td><%= link_to 'Edit', edit_food_path(food) %></td>
-              <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Show', dashboard_food_path(food) %></td>
+              <td><%= link_to 'Edit', edit_dashboard_food_path(food) %></td>
+              <td><%= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </table>
@@ -149,7 +149,7 @@
       </div>
 
       <br>
-      <%= link_to 'New Food', new_food_path %>
+      <%= link_to 'New Food', new_dashboard_food_path %>
     </div>
   </div>
 </div>
