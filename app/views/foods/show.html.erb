@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Section:</strong>
+  <%= @food.section.name %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @food.description %>
 </p>
@@ -28,6 +33,11 @@
 <p>
   <strong>Active:</strong>
   <%= @food.active %>
+</p>
+
+<p>
+  <strong>Image URL:</strong>
+  <%= @food.url %>
 </p>
 
 <%= link_to 'Edit', edit_dashboard_food_path(@food) %> |

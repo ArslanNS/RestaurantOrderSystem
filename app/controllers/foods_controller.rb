@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /foods
   # GET /foods.json
@@ -15,10 +16,12 @@ class FoodsController < ApplicationController
   # GET /foods/new
   def new
     @food = Food.new
+    @sections = Section.all
   end
 
   # GET /foods/1/edit
   def edit
+    @sections = Section.all
   end
 
   # POST /foods
@@ -69,6 +72,6 @@ class FoodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def food_params
-      params.require(:food).permit(:name, :description, :allergens, :calories, :price, :active)
+      params.require(:food).permit(:name, :description, :allergens, :calories, :price, :active, :url, :section_id)
     end
 end

@@ -17,6 +17,18 @@
   </div>
 
   <div class="field">
+    <%= form.label :section %>
+    <% section_options = options_from_collection_for_select(@sections, 'id', 'name') %>
+    <%= form.select :section_id, section_options, class: "select"%>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
