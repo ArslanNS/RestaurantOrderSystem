@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de136666-0b4d-49c3-90c3-6861e18e511f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/db/migrate/20200213190657_add_section_to_foods.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/menu_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/menu_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/food.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/food.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/section.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/section.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/menu/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/menu/index.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +118,7 @@
       <workItem from="1581605888385" duration="707000" />
       <workItem from="1581614784171" duration="124000" />
       <workItem from="1581614911785" duration="332000" />
-      <workItem from="1581617717567" duration="3532000" />
+      <workItem from="1581617717567" duration="5552000" />
     </task>
     <servers />
   </component>
@@ -198,10 +200,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1581597584975" />
-    <state x="433" y="200" width="670" height="580" key="search.everywhere.popup" timestamp="1581618413429">
+    <state x="433" y="200" width="670" height="580" key="search.everywhere.popup" timestamp="1581622595576">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="433" y="200" width="670" height="580" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1581618413429" />
+    <state x="433" y="200" width="670" height="580" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1581622595576" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1581604139787" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
