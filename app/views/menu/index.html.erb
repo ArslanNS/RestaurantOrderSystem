@@ -40,148 +40,58 @@
     <p class="title">Starters</p>
     <div class="container'">
       <div class="columns">
-        <div class="column">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://storage.needpix.com/rsynced_images/mexican-food-1885616_1280.jpg" alt="Chicken Quesadilla">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Chicken Quesadilla
-              </p>
-              <p class="container">
-              </p>
-              <p class="card-header-title is-right">
-                £5.49
-              </p>
-              <p class="card-header-title is-right">
-                Fetch Kcal
-              </p>
-              </a>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Enjoy a mexican classic with our renowned special Chicken Quesadilla.
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th></th>
-                  </tr>
-                  <tr>
-                    <th>Allergies</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <th>Fetch Allergies from DB</th>
-                  </tr>
-                  </tbody>
-                </table>
+
+        <% @foods.each do |food| %>
+          <% if food.active %>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="<%= food.url %>" alt="Chicken Quesadilla">
+                  </figure>
+                </div>
+                <header class="card-header">
+                  <p class="card-header-title">
+                    <%= food.name %>
+                  </p>
+                  <p class="container">
+                  </p>
+                  <p class="card-header-title is-right">
+                    £<%= food.price %>
+                  </p>
+                  <p class="card-header-title is-right">
+                    <%= food.calories %> Kcal
+                  </p>
+                  </a>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    <%= food.description %>
+                    <table class="table">
+                      <thead>
+                      <tr>
+                        <th></th>
+                      </tr>
+                      <tr>
+                        <th>Allergies</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <th><%= food.allergens %></th>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="#" class="card-footer-item">Edit Order</a>
+                  <a href="#" class="card-footer-item">Add to order</a>
+                </footer>
               </div>
             </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">Edit Order</a>
-              <a href="#" class="card-footer-item">Add to order</a>
-            </footer>
-          </div>
-        </div>
-        <div class="column">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://storage.needpix.com/rsynced_images/nachos-1615740_1280.jpg" alt="Tortilla Chips & Dips">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Tortilla Chips & Dips
-              </p>
-              <p class="container">
-              </p>
-              <p class="card-header-title is-right">
-                £4.99
-              </p>
-              <p class="card-header-title is-right">
-                Fetch Kcal
-              </p>
-              </a>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Tortilla chips with a selection of dips such as Salsa, Chilli, Guacamole.
-                Vegetarian
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th></th>
-                  </tr>
-                  <tr>
-                    <th>Allergies</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <th>Fetch Allergies from DB</th>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">Edit Order</a>
-              <a href="#" class="card-footer-item">Add to order</a>
-            </footer>
-          </div>
-        </div>
-        <div class="column">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://storage.needpix.com/rsynced_images/tortilla-1353091_1280.jpg" alt="Garlic Tortilla">
-              </figure>
-            </div>
-            <header class="card-header">
-              <p class="card-header-title">
-                Garlic Tortilla
-              </p>
-              <p class="container">
-              </p>
-              <p class="card-header-title is-right">
-                £4.59
-              </p>
-              <p class="card-header-title is-right">
-                Fetch Kcal
-              </p>
-              </a>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Vegetarian and Vegan friendly this is a great choice to start your meal.
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th></th>
-                  </tr>
-                  <tr>
-                    <th>Allergies</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <th>Fetch Allergies from DB</th>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">Edit Order</a>
-              <a href="#" class="card-footer-item">Add to order</a>
-            </footer>
-          </div>
-        </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="section is-medium">
