@@ -15,6 +15,7 @@ class FoodsController < ApplicationController
   # GET /foods/new
   def new
     @food = Food.new
+    @sections = Section.all
   end
 
   # GET /foods/1/edit
@@ -69,6 +70,6 @@ class FoodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def food_params
-      params.require(:food).permit(:name, :description, :allergens, :calories, :price, :active)
+      params.require(:food).permit(:name, :description, :allergens, :calories, :price, :active, :url, :section_id)
     end
 end
