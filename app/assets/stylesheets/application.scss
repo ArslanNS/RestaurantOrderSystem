@@ -17,13 +17,21 @@
 // Set the colour for nav bar.
 $primary: #3097d9;
 
-.foodbutton{
+.foodbutton {
   background-image: url("https://images.pexels.com/photos/58722/pexels-photo-58722.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
   height: 50vh;
+}
+
+.food--text {
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 25vw;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
 }
 
 head{
