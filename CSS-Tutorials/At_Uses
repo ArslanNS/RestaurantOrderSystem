@@ -1,0 +1,25 @@
+#At_media can be used to target specific, well, media types
+#This will be very helpful because we will be using handheld and projection
+@media print {
+    body {
+        font-size: 10pt;
+        font-family: times, serif;
+    }
+
+    #navigation {
+        display: none;
+    }
+}
+
+#Let's you use any font by searching for it and downloading it
+@font-face {
+    font-family: "font of all knowledge";
+    src: url(fontofallknowledge.woff);
+}
+
+p { 
+  font-family: "font of all knowledge", arial, sans-serif;
+  }
+
+#NOTE: If the browser can't handle a specific font, it will go to the next standard font
+
