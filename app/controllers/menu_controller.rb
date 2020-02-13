@@ -1,5 +1,5 @@
 class MenuController < ApplicationController
-  def items
+  def index
     @call = Call.new
   end
 
