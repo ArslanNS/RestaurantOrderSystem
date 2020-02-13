@@ -1,0 +1,25 @@
+#Transformation allows you to change images and shapes in different ways.
+
+transform: rotate(-10deg);
+
+#Rotate allows you to roate the block a certain amount of degrees
+
+transform: skew(20deg,10deg);
+
+#Skew allows you to change the angles of the x and y axis(Make it more like a parallelogram)
+
+transform: scale(2);
+
+#Scale allows you to enlarge or shrink an image
+#If you wanted to do x and y axis seperatly you would put in to parameters and they would effect the corresponding axis.
+
+transform: translate(100px,200px);
+
+#Translate allows you to mive the box around both vertically and horizontally
+
+#NOTE: You can combine different transforms by simply putting them after each other
+
+transform-origin: 0 0;
+
+#Origin is used to choose the center of the transforms, so you can control where the rotations or and other transform work around
+
