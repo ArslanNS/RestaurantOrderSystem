@@ -3,9 +3,11 @@ class CreateFoods < ActiveRecord::Migration[6.0]
     create_table :foods do |t|
       t.string :name
       t.text :description
+      t.text :allergens
       t.integer :calories
-      t.float :price
-      t.boolean :active
+      t.decimal :price
+      t.string :imgURL
+      t.boolean :isActive
 
       t.timestamps
     end

@@ -14,9 +14,11 @@ class FoodsTest < ApplicationSystemTestCase
     visit foods_url
     click_on "New Food"
 
-    check "Active" if @food.active
+    fill_in "Allergens", with: @food.allergens
     fill_in "Calories", with: @food.calories
     fill_in "Description", with: @food.description
+    fill_in "Imgurl", with: @food.imgURL
+    check "Isactive" if @food.isActive
     fill_in "Name", with: @food.name
     fill_in "Price", with: @food.price
     click_on "Create Food"
@@ -29,9 +31,11 @@ class FoodsTest < ApplicationSystemTestCase
     visit foods_url
     click_on "Edit", match: :first
 
-    check "Active" if @food.active
+    fill_in "Allergens", with: @food.allergens
     fill_in "Calories", with: @food.calories
     fill_in "Description", with: @food.description
+    fill_in "Imgurl", with: @food.imgURL
+    check "Isactive" if @food.isActive
     fill_in "Name", with: @food.name
     fill_in "Price", with: @food.price
     click_on "Update Food"

@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :allergens %>
+    <%= form.text_area :allergens %>
+  </div>
+
+  <div class="field">
     <%= form.label :calories %>
     <%= form.number_field :calories %>
   </div>
@@ -32,8 +37,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
+    <%= form.label :imgURL %>
+    <%= form.text_field :imgURL %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isActive %>
+    <%= form.check_box :isActive %>
   </div>
 
   <div class="actions">

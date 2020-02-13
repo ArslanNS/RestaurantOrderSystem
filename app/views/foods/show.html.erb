@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Allergens:</strong>
+  <%= @food.allergens %>
+</p>
+
+<p>
   <strong>Calories:</strong>
   <%= @food.calories %>
 </p>
@@ -21,8 +26,13 @@
 </p>
 
 <p>
-  <strong>Active:</strong>
-  <%= @food.active %>
+  <strong>Imgurl:</strong>
+  <%= @food.imgURL %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @food.isActive %>
 </p>
 
 <%= link_to 'Edit', edit_food_path(@food) %> |

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :foods
   get 'dashboard/index'
 
-  resources :foods
-  #post and get request for controller method not needed
+
   root 'dashboard#index'
 end
