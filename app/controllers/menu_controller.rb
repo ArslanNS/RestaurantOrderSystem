@@ -1,6 +1,8 @@
 class MenuController < ApplicationController
   def index
     @call = Call.new
+    @foods = Food.all
+    @sections = Section.all
   end
 
   def create
