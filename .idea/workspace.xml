@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="de136666-0b4d-49c3-90c3-6861e18e511f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/app/controllers/menu_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/menu_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/food.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/food.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/section.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/section.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/menu/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/menu/index.html.erb" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/app/controllers/foods_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/foods_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/foods/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/foods/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/foods/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/foods/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/foods/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/foods/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/foods/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/foods/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/foods/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/foods/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+>>>>>>> bbb62ac211b0c8229b5b3d0fce0cfe478f809070
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1XjDLDh5FwOm0uWIAp4RQbuuWr8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+  </component>
+  <component name="RubyModuleManagerSettings">
+    <option name="blackListedRootsPaths">
+      <list>
+        <option value="$PROJECT_DIR$" />
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Development" type="RailsRunConfigurationType" factoryName="Rails">
+      <module name="menu-alteration" />
+      <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.6.5" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="RailsRunConfigurationType" factoryName="Rails">
+      <module name="menu-alteration" />
+      <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de136666-0b4d-49c3-90c3-6861e18e511f" name="Default Changelist" comment="" />
+      <created>1581550552403</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581550552403</updated>
+      <workItem from="1581550556702" duration="1657000" />
+      <workItem from="1581594077756" duration="2973000" />
+      <workItem from="1581597541419" duration="5110000" />
+      <workItem from="1581605888385" duration="707000" />
+<<<<<<< HEAD
+      <workItem from="1581614784171" duration="124000" />
+      <workItem from="1581614911785" duration="332000" />
+      <workItem from="1581617717567" duration="5552000" />
+=======
+      <workItem from="1581617126258" duration="3658000" />
+>>>>>>> bbb62ac211b0c8229b5b3d0fce0cfe478f809070
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="440" y="190" key="#Web_Browsers" timestamp="1581593580815">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="190" key="#Web_Browsers/0.0.1680.1050@0.0.1680.1050" timestamp="1581593580815" />
+    <state x="304" y="187" width="1071" height="708" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581597478116">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="304" y="187" width="1071" height="708" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1581597478116" />
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1581618258019">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1581618258019" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1581605923317" />
+    <state width="1358" height="217" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1581615549046" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.23.1680.947@0.23.1680.947" timestamp="1581606625213" />
+    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1581618258018">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1581618258018" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1581605923315" />
+    <state width="1358" height="217" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1581615549046" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center/0.23.1680.947@0.23.1680.947" timestamp="1581606625208" />
+    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1581618258017">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1581618258017" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1581605923314" />
+    <state width="1358" height="217" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1581615549045" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left/0.23.1680.947@0.23.1680.947" timestamp="1581606625207" />
+    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1581618258018">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1581618258018" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1581605923315" />
+    <state width="1358" height="217" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1581615549046" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right/0.23.1680.947@0.23.1680.947" timestamp="1581606625209" />
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom" timestamp="1581618258021">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1581618258021" />
+    <state width="1638" height="295" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1581605923319" />
+    <state width="1358" height="217" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1581615549047" />
+    <state width="1638" height="295" key="GridCell.Tab.1.bottom/0.23.1680.947@0.23.1680.947" timestamp="1581606625216" />
+    <state width="1398" height="244" key="GridCell.Tab.1.center" timestamp="1581618258020">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1581618258020" />
+    <state width="1638" height="295" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1581605923318" />
+    <state width="1358" height="217" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1581615549047" />
+    <state width="1638" height="295" key="GridCell.Tab.1.center/0.23.1680.947@0.23.1680.947" timestamp="1581606625215" />
+    <state width="1398" height="244" key="GridCell.Tab.1.left" timestamp="1581618258020">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1581618258020" />
+    <state width="1638" height="295" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1581605923317" />
+    <state width="1358" height="217" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1581615549047" />
+    <state width="1638" height="295" key="GridCell.Tab.1.left/0.23.1680.947@0.23.1680.947" timestamp="1581606625214" />
+    <state width="1398" height="244" key="GridCell.Tab.1.right" timestamp="1581618258021">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1581618258021" />
+    <state width="1638" height="295" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1581605923318" />
+    <state width="1358" height="217" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1581615549047" />
+    <state width="1638" height="295" key="GridCell.Tab.1.right/0.23.1680.947@0.23.1680.947" timestamp="1581606625215" />
+    <state x="341" y="164" key="SettingsEditor" timestamp="1581597584975">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1581597584975" />
+<<<<<<< HEAD
+    <state x="433" y="200" width="670" height="580" key="search.everywhere.popup" timestamp="1581622595576">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="433" y="200" width="670" height="580" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1581622595576" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1581604139787" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TeamProject2020_13@Development.rcov" NAME="Development Coverage Results" MODIFIED="1581617919379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="menu-alteration" />
+    <SUITE FILE_PATH="coverage/menu_alteration@Development.rcov" NAME="Development Coverage Results" MODIFIED="1581605913581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="menu-alteration" />
+  </component>
+</project>
+=======
+    <state x="505" y="251" width="670" height="662" key="search.everywhere.popup" timestamp="1581620542927">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="505" y="251" width="670" height="662" key="search.everywhere.popup/-1112.239.1112.811/0.23.1680.1027@0.23.1680.1027" timestamp="1581620542927" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1581604139787" />
+  </component>
+</project>
+>>>>>>> bbb62ac211b0c8229b5b3d0fce0cfe478f809070
