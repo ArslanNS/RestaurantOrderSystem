@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create Sections
-section_starters = Section.create(name: "STARTERS")
-section_mains = Section.create(name: "MAINS")
-section_sides = Section.create(name: "SIDES")
-section_desserts = Section.create(name: "DESSERTS")
-section_drinks = Section.create(name: "DRINKS")
+section_starters = Section.create(name: "starters")
+section_mains = Section.create(name: "mains")
+section_sides = Section.create(name: "sides")
+section_desserts = Section.create(name: "desserts")
+section_drinks = Section.create(name: "drinks")
 
 # Create Foods
 Food.create(

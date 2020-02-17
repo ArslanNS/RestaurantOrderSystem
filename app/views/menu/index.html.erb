@@ -44,7 +44,7 @@
     <div class="container">
       <div class="columns">
         <% @foods.each do |food| %>
-          <% if (food.active and food.section.name == "starters".upcase) %>
+          <% if (food.active and food.section.name.downcase == "starters") %>
             <div class="column is-one-third">
               <div class="card">
                 <div class="card-image">
@@ -90,7 +90,7 @@
     <div class="container'">
       <div class="columns">
         <% @foods.each do |food| %>
-          <% if (food.active and food.section.name == "mains".upcase) %>
+          <% if (food.active and food.section.name.downcase == "mains") %>
             <div class="column is-one-third">
               <div class="card">
                 <div class="card-image">
@@ -138,7 +138,7 @@
       <div class="columns">
 
         <% @foods.each do |food| %>
-          <% if (food.active and food.section.name == "sides".upcase) %>
+          <% if (food.active and food.section.name.downcase == "sides") %>
             <div class="column is-one-third">
               <div class="card">
                 <div class="card-image">
@@ -185,7 +185,7 @@
     <div class="container'">
           <div class="columns">
             <% @foods.each do |food| %>
-              <% if (food.active and food.section.name == "desserts".upcase) %>
+              <% if (food.active and food.section.name.downcase == "desserts") %>
                 <div class="column is-one-third">
                   <div class="card">
                     <div class="card-image">
@@ -233,7 +233,7 @@
             <div class="columns">
 
               <% @foods.each do |food| %>
-                <% if (food.active and food.section.name == "drinks".upcase) %>
+                <% if (food.active and food.section.name.downcase == "drinks") %>
                   <div class="column is-one-third">
                     <div class="card">
                       <div class="card-image">
