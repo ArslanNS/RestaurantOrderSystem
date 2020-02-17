@@ -2,12 +2,8 @@
 <section class="hero is-small is-info is-bold">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-        Oaxaca Mexican Food
-      </h1>
-      <h2 class="subtitle">
-        Table Ordering System
-      </h2>
+      <h1 class="title">Oaxaca Mexican Food</h1>
+      <h2 class="subtitle">Table Ordering System</h2>
       <div class="tile is-ancestor">
         <!-- All other tile elements -->
         <div class="tile is-parent">
@@ -43,7 +39,7 @@
 
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name == "starters".upcase) %>
-            <div class="column">
+            <div class="column is-one-third">
               <div class="card">
                 <div class="card-image">
                   <figure class="image is-4by3">
@@ -103,7 +99,7 @@
 
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name == "mains".upcase) %>
-            <div class="column">
+            <div class="column is-one-third">
               <div class="card">
                 <div class="card-image">
                   <figure class="image is-4by3">
@@ -163,7 +159,7 @@
 
           <% @foods.each do |food| %>
             <% if (food.active and food.section.name == "sides".upcase) %>
-              <div class="column">
+              <div class="column is-one-third">
                 <div class="card">
                   <div class="card-image">
                     <figure class="image is-4by3">
@@ -223,7 +219,7 @@
 
             <% @foods.each do |food| %>
               <% if (food.active and food.section.name == "desserts".upcase) %>
-                <div class="column">
+                <div class="column is-one-third">
                   <div class="card">
                     <div class="card-image">
                       <figure class="image is-4by3">
@@ -283,7 +279,7 @@
 
               <% @foods.each do |food| %>
                 <% if (food.active and food.section.name == "drinks".upcase) %>
-                  <div class="column">
+                  <div class="column is-one-third">
                     <div class="card">
                       <div class="card-image">
                         <figure class="image is-4by3">
