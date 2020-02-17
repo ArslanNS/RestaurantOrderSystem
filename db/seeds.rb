@@ -47,7 +47,7 @@ Food.create(
 Food.create(
     name: "BBQ Chicken Fajitas",
     description: "Steaming hot BBQ Chicken Fajitas for you to enjoy. Served with Rice and dips.",
-    allergens: "Corn, Gluten, Milk and Say",
+    allergens: "Corn, Gluten, Milk and Soy",
     calories: 829,
     price: 11.49,
     active: true,

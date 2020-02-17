@@ -31,12 +31,18 @@
 </section>
 
 <!-- Hero content: will be in the middle -->
-<div class="hero-body">
+<div class="menu-body">
   <div class="container">
-    <p class="title">Starters</p>
-    <div class="container'">
-      <div class="columns">
 
+    <div class="container">
+      (For Alex: filters to be placed here)
+    </div>
+
+    <br>
+
+    <p class="title">Starters</p>
+    <div class="container">
+      <div class="columns">
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name == "starters".upcase) %>
             <div class="column is-one-third">
@@ -63,21 +69,8 @@
                 <div class="card-content">
                   <div class="content">
                     <%= food.description %>
-                    <table class="table">
-                      <thead>
-                      <tr>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <th>Allergies</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr>
-                        <th><%= food.allergens %></th>
-                      </tr>
-                      </tbody>
-                    </table>
+                    <hr>
+                    <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                   </div>
                 </div>
                 <footer class="card-footer">
@@ -91,12 +84,11 @@
       </div>
     </div>
 
-    <div class="section is-medium">
-      <p class="title">Mains</p>
-    </div>
+    <br>
+
+    <p class="title">Mains</p>
     <div class="container'">
       <div class="columns">
-
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name == "mains".upcase) %>
             <div class="column is-one-third">
@@ -123,21 +115,8 @@
                 <div class="card-content">
                   <div class="content">
                     <%= food.description %>
-                    <table class="table">
-                      <thead>
-                      <tr>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <th>Allergies</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr>
-                        <th><%= food.allergens %></th>
-                      </tr>
-                      </tbody>
-                    </table>
+                    <hr>
+                    <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                   </div>
                 </div>
                 <footer class="card-footer">
@@ -151,72 +130,60 @@
 
         </div>
       </div>
-      <div class="section is-medium">
-        <p class="title">Sides</p>
-      </div>
-      <div class="container'">
-        <div class="columns">
 
-          <% @foods.each do |food| %>
-            <% if (food.active and food.section.name == "sides".upcase) %>
-              <div class="column is-one-third">
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <img src="<%= food.url %>" alt="Chicken Quesadilla">
-                    </figure>
-                  </div>
-                  <header class="card-header">
-                    <p class="card-header-title">
-                      <%= food.name %>
-                    </p>
-                    <p class="container">
-                    </p>
-                    <p class="card-header-title is-right">
-                      £<%= food.price %>
-                    </p>
-                    <p class="card-header-title is-right">
-                      <%= food.calories %> Kcal
-                    </p>
-                    </a>
-                  </header>
-                  <div class="card-content">
-                    <div class="content">
-                      <%= food.description %>
-                      <table class="table">
-                        <thead>
-                        <tr>
-                          <th></th>
-                        </tr>
-                        <tr>
-                          <th>Allergies</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                          <th><%= food.allergens %></th>
-                        </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="#" class="card-footer-item">Edit Order</a>
-                    <a href="#" class="card-footer-item">Add to order</a>
-                  </footer>
+    <br>
+
+    <p class="title">Sides</p>
+    <div class="container'">
+      <div class="columns">
+
+        <% @foods.each do |food| %>
+          <% if (food.active and food.section.name == "sides".upcase) %>
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="<%= food.url %>" alt="Chicken Quesadilla">
+                  </figure>
                 </div>
+                <header class="card-header">
+                  <p class="card-header-title">
+                    <%= food.name %>
+                  </p>
+                  <p class="container">
+                  </p>
+                  <p class="card-header-title is-right">
+                    £<%= food.price %>
+                  </p>
+                  <p class="card-header-title is-right">
+                    <%= food.calories %> Kcal
+                  </p>
+                  </a>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    <%= food.description %>
+                    <hr>
+                    <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="#" class="card-footer-item">Edit Order</a>
+                  <a href="#" class="card-footer-item">Add to order</a>
+                </footer>
               </div>
-            <% end %>
+            </div>
           <% end %>
+        <% end %>
 
-          </div>
         </div>
-        <div class="section is-medium">
-          <p class="title">Desserts</p>
-        </div>
-        <div class="container'">
+      </div>
+
+    <br>
+
+    <p class="title">Desserts</p>
+    <div class="container'">
           <div class="columns">
-
             <% @foods.each do |food| %>
               <% if (food.active and food.section.name == "desserts".upcase) %>
                 <div class="column is-one-third">
@@ -243,21 +210,8 @@
                     <div class="card-content">
                       <div class="content">
                         <%= food.description %>
-                        <table class="table">
-                          <thead>
-                          <tr>
-                            <th></th>
-                          </tr>
-                          <tr>
-                            <th>Allergies</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr>
-                            <th><%= food.allergens %></th>
-                          </tr>
-                          </tbody>
-                        </table>
+                        <hr>
+                        <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                       </div>
                     </div>
                     <footer class="card-footer">
@@ -271,10 +225,11 @@
 
             </div>
           </div>
-          <div class="section is-medium">
-            <p class="title">Drinks</p>
-          </div>
-          <div class="container'">
+
+    <br>
+
+    <p class="title">Drinks</p>
+    <div class="container'">
             <div class="columns">
 
               <% @foods.each do |food| %>
@@ -303,21 +258,8 @@
                       <div class="card-content">
                         <div class="content">
                           <%= food.description %>
-                          <table class="table">
-                            <thead>
-                            <tr>
-                              <th></th>
-                            </tr>
-                            <tr>
-                              <th>Allergies</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                              <th><%= food.allergens %></th>
-                            </tr>
-                            </tbody>
-                          </table>
+                          <hr>
+                          <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                         </div>
                       </div>
                       <footer class="card-footer">
@@ -331,9 +273,5 @@
 
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
