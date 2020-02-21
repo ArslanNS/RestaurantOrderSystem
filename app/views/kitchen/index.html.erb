@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin dashboard</title>
+  <title>Kitchen dashboard</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   <!-- Bulma Version 0.8.x-->
@@ -28,8 +28,8 @@
     </div>
     <div id="navMenu" class="navbar-menu">
       <div class="navbar-start">
-      </div>
     </div>
+  </div>
   </div>
 </nav>
 <!-- END NAV -->
@@ -42,8 +42,8 @@
         </p>
         <ul class="menu-list">
           <li><a href="/dashboard">Dashboard</a></li>
-          <li><a class="is-active">Menu</a></li>
-          <li><a href="/dashboard/kitchen">Kitchen</a></li>
+          <li><%= link_to 'Menu', dashboard_foods_path %></li>
+          <li><a class="is-active">Kitchen</a></li>
         </ul>
         <p class="menu-label">
           Administration
@@ -59,10 +59,10 @@
               <li><a>Remove an employee</a></li>
             </ul>
           </li>
-          <!--          <li><a>Invitations</a></li>-->
-          <!--          <li><a>Cloud Storage Environment Settings</a></li>-->
-          <!--          <li><a>Authentication</a></li>-->
-          <!--          <li><a>Payments</a></li>-->
+<!--          <li><a>Invitations</a></li>-->
+<!--          <li><a>Cloud Storage Environment Settings</a></li>-->
+<!--          <li><a>Authentication</a></li>-->
+<!--          <li><a>Payments</a></li>-->
         </ul>
         <p class="menu-label">
           Transactions
@@ -80,10 +80,10 @@
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
-              Menu alterations.
+              Kitchen Administration.
             </h1>
             <h2 class="subtitle">
-              Add, modify and remove records from this page
+              Keep track of orders sent to the kitchen
             </h2>
           </div>
         </div>
@@ -92,71 +92,44 @@
         <div class="tile is-ancestor has-text-centered">
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title">2</p>
-              <p class="subtitle">Issues</p>
+              <p class="title has-text-danger">3</p>
+              <p class="subtitle has-text-danger">Pending issues</p>
             </article>
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title">0</p>
-              <p class="subtitle">Tables free</p>
+              <p class="title has-text-success">17</p>
+              <p class="subtitle has-text-success">Completed issues</p>
             </article>
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title">3</p>
-              <p class="subtitle">Reservations</p>
-            </article>
-          </div>
-          <div class="tile is-parent">
-            <article class="tile is-child box">
-              <p class="title"><%= @foods.count %></p>
-              <p class="subtitle">Menu items</p>
+              <p class="title">12</p>
+              <p class="subtitle">Employees active</p>
             </article>
           </div>
         </div>
       </section>
-      <p id="notice"><%= notice %></p>
 
       <div class="table-container">
         <section class="info-tiles">
-        <table class="table is-bordered is-striped is-fullwidth is-hoverable">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Section</th>
-            <th>Description</th>
-            <th>Allergens</th>
-            <th>Calories</th>
-            <th>Price</th>
-            <th>Shown on menu</th>
-          </tr>
-          </thead>
-
-          <% @foods.each do |food| %>
+          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+            <thead>
             <tr>
-              <td><%= food.name %></td>
-              <td><%= food.section.name %></td>
-              <td><%= food.description %></td>
-              <td><%= food.allergens %></td>
-              <td><%= food.calories %></td>
-              <td><%= food.price %></td>
-              <td><%= food.active %></td>
-              <td><%= link_to 'Show', dashboard_food_path(food) %></td>
-              <td><%= link_to 'Edit', edit_dashboard_food_path(food) %></td>
-              <td><%= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <th>On hold</th>
+              <th>Being prepared</th>
+              <th>Ready to go</th>
+              <th>Served</th>
             </tr>
-          <% end %>
-        </table>
+            </thead>
+
+
+          </table>
         </section>
       </div>
-
-      <br>
-      <%= link_to 'New Food', new_dashboard_food_path %>
     </div>
   </div>
 </div>
 <script async type="text/javascript" src="../js/bulma.js"></script>
 </body>
 </html>
-
