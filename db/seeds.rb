@@ -17,7 +17,7 @@ user_kitchen_1 = User.create(email: "kitchen1@gmail.com", password: "password")
 user_kitchen_2 = User.create(email: "kitchen2@gmail.com", password: "password")
 user_kitchen_3 = User.create(email: "kitchen3@gmail.com", password: "password")
 
-# Add roles to users
+# Add Roles to Users
 user_table_1.add_role :table
 user_table_2.add_role :table
 user_table_3.add_role :table
@@ -27,6 +27,11 @@ user_waiter_3.add_role :waiter
 user_kitchen_1.add_role :kitchen
 user_kitchen_2.add_role :kitchen
 user_kitchen_3.add_role :kitchen
+
+# Create Tables
+table_1 = Table.create(name: "Table 1", number: 1)
+table_2 = Table.create(name: "Table 2", number: 2)
+table_3 = Table.create(name: "Table 3", number: 3)
 
 # Create Sections
 section_starters = Section.create(name: "starters")
