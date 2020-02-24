@@ -6,6 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Create Users
+user_table_1 = User.create(email: "table1@gmail.com", password: "password")
+user_table_2 = User.create(email: "table2@gmail.com", password: "password")
+user_table_3 = User.create(email: "table3@gmail.com", password: "password")
+user_waiter_1 = User.create(email: "waiter1@gmail.com", password: "password")
+user_waiter_2 = User.create(email: "waiter2@gmail.com", password: "password")
+user_waiter_3 = User.create(email: "waiter3@gmail.com", password: "password")
+user_kitchen_1 = User.create(email: "kitchen1@gmail.com", password: "password")
+user_kitchen_2 = User.create(email: "kitchen2@gmail.com", password: "password")
+user_kitchen_3 = User.create(email: "kitchen3@gmail.com", password: "password")
+
+# Add roles to users
+user_table_1.add_role :table
+user_table_2.add_role :table
+user_table_3.add_role :table
+user_waiter_1.add_role :waiter
+user_waiter_2.add_role :waiter
+user_waiter_3.add_role :waiter
+user_kitchen_1.add_role :kitchen
+user_kitchen_2.add_role :kitchen
+user_kitchen_3.add_role :kitchen
+
 # Create Sections
 section_starters = Section.create(name: "starters")
 section_mains = Section.create(name: "mains")
