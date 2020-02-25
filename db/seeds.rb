@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create Tables
+table_0 = Table.create(name: "Table 0", number: 0)
 table_1 = Table.create(name: "Table 1", number: 1)
 table_2 = Table.create(name: "Table 2", number: 2)
 table_3 = Table.create(name: "Table 3", number: 3)
