@@ -13,14 +13,20 @@
   </div>
   <br><br>
   <div class="container">
+
+  <h1 class="subtitle"><strong>Comments</strong>:</h1>
+  <% @article.comments.each do |comment| %>
+    <p><strong><%= comment.commenter %></strong>: <%= comment.body %></p>
+  <% end %>
+  <br>
   <h3 class="subtitle">Add a comment:</h3>
     <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
       <p>
-        <%= form.label :commenter %><br>
+        <%= form.label :Author %><br>
         <%= form.text_field :commenter %>
       </p>
       <p>
-        <%= form.label :body %><br>
+        <%= form.label :Comment %><br>
         <%= form.text_area :body %>
       </p>
       <p>
