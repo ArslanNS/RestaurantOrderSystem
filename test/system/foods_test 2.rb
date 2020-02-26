@@ -15,6 +15,7 @@ class FoodsTest < ApplicationSystemTestCase
     click_on "New Food"
 
     check "Active" if @food.active
+    fill_in "Allergens", with: @food.allergens
     fill_in "Calories", with: @food.calories
     fill_in "Description", with: @food.description
     fill_in "Name", with: @food.name
@@ -30,6 +31,7 @@ class FoodsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     check "Active" if @food.active
+    fill_in "Allergens", with: @food.allergens
     fill_in "Calories", with: @food.calories
     fill_in "Description", with: @food.description
     fill_in "Name", with: @food.name

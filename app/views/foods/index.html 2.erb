@@ -19,9 +19,7 @@
 <nav class="navbar is-white">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item brand-text" href="../index.html">
-        Oaxaca Mexican Food
-      </a>
+      <a class="navbar-item brand-text" href="../index.html">Oaxaca Mexican Food</a>
       <div class="navbar-burger burger" data-target="navMenu">
         <span></span>
         <span></span>
@@ -30,6 +28,7 @@
     </div>
     <div id="navMenu" class="navbar-menu">
       <div class="navbar-start">
+      </div>
     </div>
   </div>
 </nav>
@@ -42,8 +41,8 @@
           General
         </p>
         <ul class="menu-list">
-          <li><a class="is-active">Dashboard</a></li>
-          <li><a href="/foods">Menu</a></li>
+          <li><a href="http://localhost:3000">Dashboard</a></li>
+          <li><a class="is-active">Menu</a></li>
         </ul>
         <p class="menu-label">
           Administration
@@ -59,10 +58,10 @@
               <li><a>Remove an employee</a></li>
             </ul>
           </li>
-<!--          <li><a>Invitations</a></li>-->
-<!--          <li><a>Cloud Storage Environment Settings</a></li>-->
-<!--          <li><a>Authentication</a></li>-->
-<!--          <li><a>Payments</a></li>-->
+          <!--          <li><a>Invitations</a></li>-->
+          <!--          <li><a>Cloud Storage Environment Settings</a></li>-->
+          <!--          <li><a>Authentication</a></li>-->
+          <!--          <li><a>Payments</a></li>-->
         </ul>
         <p class="menu-label">
           Transactions
@@ -80,10 +79,10 @@
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
-              Hello, John Appleseed.
+              Menu alterations.
             </h1>
             <h2 class="subtitle">
-              Oaxaca employee (Admin)
+              Add, modify and remove records from this page
             </h2>
           </div>
         </div>
@@ -110,15 +109,51 @@
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title">12</p>
-              <p class="subtitle">Employees active</p>
+              <p class="title"><%= @foods.count %></p>
+              <p class="subtitle">Menu items</p>
             </article>
           </div>
         </div>
       </section>
+      <p id="notice"><%= notice %></p>
+
+      <div class="table-container">
+        <section class="info-tiles">
+        <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Allergens</th>
+            <th>Calories</th>
+            <th>Price</th>
+            <th>Shown on menu</th>
+          </tr>
+          </thead>
+
+          <% @foods.each do |food| %>
+            <tr>
+              <td><%= food.name %></td>
+              <td><%= food.description %></td>
+              <td><%= food.allergens %></td>
+              <td><%= food.calories %></td>
+              <td><%= food.price %></td>
+              <td><%= food.active %></td>
+              <td><%= link_to 'Show', food %></td>
+              <td><%= link_to 'Edit', edit_food_path(food) %></td>
+              <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </table>
+        </section>
+      </div>
+
+      <br>
+      <%= link_to 'New Food', new_food_path %>
     </div>
   </div>
 </div>
 <script async type="text/javascript" src="../js/bulma.js"></script>
 </body>
 </html>
+

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :foods
   get 'dashboard/index'
 
-  resources :foods
 
   root 'dashboard#index'
 end

@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +21,9 @@
 <nav class="navbar is-white">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item brand-text" href="../index.html">Oaxaca Mexican Food</a>
+      <a class="navbar-item brand-text" href="../index.html">
+        Oaxaca Mexican Food
+      </a>
       <div class="navbar-burger burger" data-target="navMenu">
         <span></span>
         <span></span>
@@ -30,7 +34,6 @@
       <div class="navbar-start">
       </div>
     </div>
-  </div>
 </nav>
 <!-- END NAV -->
 <div class="container">
@@ -79,81 +82,48 @@
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
-              Menu alterations.
+              Hello, John Appleseed.
             </h1>
             <h2 class="subtitle">
-              Add, modify and remove records from this page
+              Oaxaca employee (Admin)
             </h2>
           </div>
         </div>
       </section>
-      <section class="info-tiles">
-        <div class="tile is-ancestor has-text-centered">
-          <div class="tile is-parent">
-            <article class="tile is-child box">
-              <p class="title">2</p>
-              <p class="subtitle">Issues</p>
-            </article>
-          </div>
-          <div class="tile is-parent">
-            <article class="tile is-child box">
-              <p class="title">0</p>
-              <p class="subtitle">Tables free</p>
-            </article>
-          </div>
-          <div class="tile is-parent">
-            <article class="tile is-child box">
-              <p class="title">3</p>
-              <p class="subtitle">Reservations</p>
-            </article>
-          </div>
-          <div class="tile is-parent">
-            <article class="tile is-child box">
-              <p class="title"><%= @foods.count %></p>
-              <p class="subtitle">Menu items</p>
-            </article>
-          </div>
-        </div>
-      </section>
-      <p id="notice"><%= notice %></p>
+      <h1>Foods</h1>
 
-      <div class="table-container">
-        <section class="info-tiles">
-        <table class="table is-bordered is-striped is-fullwidth is-hoverable">
-          <thead>
+      <table>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Calories</th>
+          <th>Price</th>
+          <th>Active</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @foods.each do |food| %>
           <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Allergens</th>
-            <th>Calories</th>
-            <th>Price</th>
-            <th>Shown on menu</th>
+            <td><%= food.name %></td>
+            <td><%= food.description %></td>
+            <td><%= food.calories %></td>
+            <td><%= food.price %></td>
+            <td><%= food.active %></td>
+            <td><%= link_to 'Show', food %></td>
+            <td><%= link_to 'Edit', edit_food_path(food) %></td>
+            <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
-          </thead>
+        <% end %>
+        </tbody>
+      </table>
 
-          <% @foods.each do |food| %>
-            <tr>
-              <td><%= food.name %></td>
-              <td><%= food.description %></td>
-              <td><%= food.allergens %></td>
-              <td><%= food.calories %></td>
-              <td><%= food.price %></td>
-              <td><%= food.active %></td>
-              <td><%= link_to 'Show', food %></td>
-              <td><%= link_to 'Edit', edit_food_path(food) %></td>
-              <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-        </table>
-        </section>
-      </div>
-
-      <br>
-      <%= link_to 'New Food', new_food_path %>
+      <%= button_to "New Food", new_food_path, :class => "button", :method => :get %>
     </div>
   </div>
 </div>
 <script async type="text/javascript" src="../js/bulma.js"></script>
 </body>
 </html>
-
