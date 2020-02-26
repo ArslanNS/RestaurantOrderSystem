@@ -6,10 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Create Tables
+table_0 = Table.create(name: "Table 0", number: 0)
+table_1 = Table.create(name: "Table 1", number: 1)
+table_2 = Table.create(name: "Table 2", number: 2)
+table_3 = Table.create(name: "Table 3", number: 3)
+
 # Create Users
-user_table_1 = User.create(email: "table1@gmail.com", password: "password")
-user_table_2 = User.create(email: "table2@gmail.com", password: "password")
-user_table_3 = User.create(email: "table3@gmail.com", password: "password")
+user_table_1 = User.create(email: "table1@gmail.com", password: "password", table: table_1)
+user_table_2 = User.create(email: "table2@gmail.com", password: "password", table: table_2)
+user_table_3 = User.create(email: "table3@gmail.com", password: "password", table: table_3)
 user_waiter_1 = User.create(email: "waiter1@gmail.com", password: "password")
 user_waiter_2 = User.create(email: "waiter2@gmail.com", password: "password")
 user_waiter_3 = User.create(email: "waiter3@gmail.com", password: "password")
@@ -17,7 +23,7 @@ user_kitchen_1 = User.create(email: "kitchen1@gmail.com", password: "password")
 user_kitchen_2 = User.create(email: "kitchen2@gmail.com", password: "password")
 user_kitchen_3 = User.create(email: "kitchen3@gmail.com", password: "password")
 
-# Add roles to users
+# Add Roles to Users
 user_table_1.add_role :table
 user_table_2.add_role :table
 user_table_3.add_role :table
