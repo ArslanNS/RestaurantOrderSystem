@@ -1,2 +1,6 @@
-Manipulation of database
-adding confirm field? or confirm gui
+Order Confirmation:
+
+-All fields which are required to be filled out must not be empty otherwise this results in order failure
+-No food items that are out of stock can be ordered
+-There is a limit to the number of one specific item that can be ordered unless otherwise approved
+-If all the rules have been satisfied the order status field is automatically updated to confirmed and its sent ot the kitchen team
