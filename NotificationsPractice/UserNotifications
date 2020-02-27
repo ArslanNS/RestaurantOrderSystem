@@ -1,0 +1,116 @@
+#Resources used
+
+# config/routes.rb
+Rails.application.routes.draw do
+
+  devise_for :users
+
+  resources :posts do
+    resources :comments
+  end
+
+  resources :notifications, only: [:index]
+
+end
+
+#--------------------------Variables-----------------------------------------------
+rails g model Notification recipient_id:integer actor_id:integer read_at:datetime action:string notifiable_id:integer notifiable_type:string
+
+#recipient_id --> Is used to represent the person recieving the notification, which will be the kitchen or waiter in our case.
+
+#actor_id --> Is used to represent the person who made/triggered the notification, which will be the waiter or customer in our case.
+
+#read_at --> Is a time stamp of when the notification was read/seen.
+
+#notifiable_id --> The human version of the notification such as a post or text, which will just be a message, similar to a SMS.
+
+#notifiable_type --> The way in which the computer will understand the messgae as.
+
+#The way in which all the variables will interact
+
+# app/models/notification.rb
+class Notification < ApplicationRecord
+  belongs_to :recipient, class_name: 'User'
+  belongs_to :actor, class_name: 'User'
+  belongs_to :notifiable, polymorphic: true
+
+  scope :unread, -> { where(read_at: nil) }
+end
+
+#---------------------------Multiple notifications----------------------
+
+# app/models/user.rb
+class User < ApplicationRecord
+  # ...
+  has_many :notifications, foreign_key: :recipient_id
+end
+
+#Examples
+
+#-----------------------------Post form---------------------------------
+# app/models/post.rb
+class Post < ApplicationRecord
+  belongs_to :user
+  has_many :comments, dependent: :destroy
+end
+
+#-----------------------------Comment form------------------------------
+# app/models/comment.rb
+class Comment < ApplicationRecord
+  belongs_to :user
+  belongs_to :post
+end
+
+#----------------------------Updating the record------------------------
+# app/models/user.rb
+class User < ApplicationRecord
+  # ...
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :edestroy
+end
+
+#----------------------------Notifiying Multiple People-----------------
+# app/models/comment.rb
+class Comment < ApplicationRecord
+  after_create :create_notifications
+
+  # ...
+
+  private
+
+  def recipients
+    # Up to your own implementation
+  end
+
+  def create_notifications
+    recipients.each do |recipient|
+      Notification.create(recipient: recipient, actor: self.user,
+        action: 'posted', notifiable: self)
+    end
+  end
+
+end
+
+#T--------------------------The notification appearance---------------
+# app/controllers/notifications_controller.rb
+class NotificationsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_notifications
+
+  def index
+  end
+
+  private
+
+  def set_notifications
+    @notifications = Notification.where(recipient: current_user).unread
+  end
+
+end
+
+
+
+
+
+
+
