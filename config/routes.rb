@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :menu, only: [:index, :create]
-  resources :orders, only: [:index, :create]
+  resources :orders, only: [:index, :create, :destroy]
 
   resources :dashboard, only: [:index]
   namespace :dashboard do
