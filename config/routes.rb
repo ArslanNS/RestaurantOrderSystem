@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  get 'orders/index'
   devise_for :users
 
   root 'welcome#index'
 
-  resources :menu, only: [:index, :create]
-  resources :dashboard, only: [:index]
+  resources :menu, only: [:index, :create, :update]
+  resources :orders, only: [:index, :create, :destroy]
 
+  resources :dashboard, only: [:index]
   namespace :dashboard do
     resources :foods, controller: '/foods'
   end

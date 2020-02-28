@@ -14,10 +14,9 @@
  *= require_self
  */
 
-// Set the colour for nav bar.
-$primary: #3097d9;
+@import "bulma";
 
-.foodbutton {
+.food-button {
   background-image: url("https://images.pexels.com/photos/58722/pexels-photo-58722.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -26,26 +25,14 @@ $primary: #3097d9;
   height: 50vh;
 }
 
-.food--text {
+.food-text {
   background-color: rgba(255, 255, 255, 0.4);
   text-align: center;
   border-radius: 5px;
   height: max-content;
 }
 
-head{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.menu-body {
+  background: #ECF0F3;
+  margin-top: 2rem;
 }
-body{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-$section-padding-medium: 3rem 1.5rem;
-$footer-color: true;
-$footer-background-color: #ffff;
-$footer-padding: 3rem 1.5rem 3rem;
-@import "bulma";
-@import "bulma";

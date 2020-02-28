@@ -2,12 +2,8 @@
 <section class="hero is-small is-info is-bold">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-        Oaxaca Mexican Food
-      </h1>
-      <h2 class="subtitle">
-        Table Ordering System
-      </h2>
+      <h1 class="title">Oaxaca Mexican Food</h1>
+      <h2 class="subtitle">You're Seated at Table: <%= current_user.table.number %></h2>
       <div class="tile is-ancestor">
         <!-- All other tile elements -->
         <div class="tile is-parent">
@@ -18,15 +14,15 @@
         </div>
         <div class="tile is-parent">
           <%= form_with model: @call, url: {action: "create"}, id: "call-waiter" do |f| %>
-            <%= f.hidden_field :table_id, value: 0 %>
+            <%= f.hidden_field :table_id, value: current_user.table.id %>
           <% end %>
           <article class="tile is-child notification is-dark" onclick="document.getElementById('call-waiter').submit();" style="cursor: pointer">
-            <p class="title">Call Waiter</p>
+            <p class="title">Request Waiter for Help</p>
           </article>
         </div>
         <div class="tile is-parent">
-          <article class="tile is-child notification is-dark" onclick="location.href='http://www.google.com';" style="cursor: pointer">
-            <p class="title">Checkout <i class="fas fa-shopping-cart" style="float: right;"></i></p>
+          <article class="tile is-child notification is-dark" onclick="location.href='<%= orders_path %>';" style="cursor: pointer">
+            <p class="title">Orders <i class="fas fa-shopping-cart" style="float: right;"></i></p>
           </article>
         </div>
       </div>
@@ -35,15 +31,21 @@
 </section>
 
 <!-- Hero content: will be in the middle -->
-<div class="hero-body">
+<div class="menu-body">
   <div class="container">
+
+    <div class="container">
+      (For Alex: filters to be placed here)
+    </div>
+
+    <br>
+
     <p class="title">Starters</p>
-    <div class="container'">
+    <div class="container">
       <div class="columns">
-
         <% @foods.each do |food| %>
-          <% if (food.active and food.section.name == "starters".upcase) %>
-            <div class="column">
+          <% if (food.active and food.section.name.downcase == "starters") %>
+            <div class="column is-one-third">
               <div class="card">
                 <div class="card-image">
                   <figure class="image is-4by3">
@@ -67,26 +69,18 @@
                 <div class="card-content">
                   <div class="content">
                     <%= food.description %>
-                    <table class="table">
-                      <thead>
-                      <tr>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <th>Allergies</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr>
-                        <th><%= food.allergens %></th>
-                      </tr>
-                      </tbody>
-                    </table>
+                    <hr>
+                    <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Edit Order</a>
-                  <a href="#" class="card-footer-item">Add to order</a>
+                  <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                    <%= f.hidden_field :table_id, value: current_user.table.id %>
+                    <%= f.hidden_field :food_id, value: food.id %>
+                    <%= f.hidden_field :requests, value: "" %>
+                    <%= f.hidden_field :status_id, value: "1" %>
+                  <% end %>
+                  <a href="#" class="card-footer-item" onclick="document.getElementById('add-order-<%= food.id.to_s %>').submit();">Add to order</a>
                 </footer>
               </div>
             </div>
@@ -95,15 +89,14 @@
       </div>
     </div>
 
-    <div class="section is-medium">
-      <p class="title">Mains</p>
-    </div>
+    <br>
+
+    <p class="title">Mains</p>
     <div class="container'">
       <div class="columns">
-
         <% @foods.each do |food| %>
-          <% if (food.active and food.section.name == "mains".upcase) %>
-            <div class="column">
+          <% if (food.active and food.section.name.downcase == "mains") %>
+            <div class="column is-one-third">
               <div class="card">
                 <div class="card-image">
                   <figure class="image is-4by3">
@@ -127,26 +120,18 @@
                 <div class="card-content">
                   <div class="content">
                     <%= food.description %>
-                    <table class="table">
-                      <thead>
-                      <tr>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <th>Allergies</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr>
-                        <th><%= food.allergens %></th>
-                      </tr>
-                      </tbody>
-                    </table>
+                    <hr>
+                    <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Edit Order</a>
-                  <a href="#" class="card-footer-item">Add to order</a>
+                  <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                    <%= f.hidden_field :table_id, value: current_user.table.id %>
+                    <%= f.hidden_field :food_id, value: food.id %>
+                    <%= f.hidden_field :requests, value: "" %>
+                    <%= f.hidden_field :status_id, value: "1" %>
+                  <% end %>
+                  <a href="#" class="card-footer-item" onclick="document.getElementById('add-order-<%= food.id.to_s %>').submit();">Add to order</a>
                 </footer>
               </div>
             </div>
@@ -155,75 +140,68 @@
 
         </div>
       </div>
-      <div class="section is-medium">
-        <p class="title">Sides</p>
-      </div>
-      <div class="container'">
-        <div class="columns">
 
-          <% @foods.each do |food| %>
-            <% if (food.active and food.section.name == "sides".upcase) %>
-              <div class="column">
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <img src="<%= food.url %>" alt="Chicken Quesadilla">
-                    </figure>
-                  </div>
-                  <header class="card-header">
-                    <p class="card-header-title">
-                      <%= food.name %>
-                    </p>
-                    <p class="container">
-                    </p>
-                    <p class="card-header-title is-right">
-                      £<%= food.price %>
-                    </p>
-                    <p class="card-header-title is-right">
-                      <%= food.calories %> Kcal
-                    </p>
-                    </a>
-                  </header>
-                  <div class="card-content">
-                    <div class="content">
-                      <%= food.description %>
-                      <table class="table">
-                        <thead>
-                        <tr>
-                          <th></th>
-                        </tr>
-                        <tr>
-                          <th>Allergies</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                          <th><%= food.allergens %></th>
-                        </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="#" class="card-footer-item">Edit Order</a>
-                    <a href="#" class="card-footer-item">Add to order</a>
-                  </footer>
+    <br>
+
+    <p class="title">Sides</p>
+    <div class="container'">
+      <div class="columns">
+
+        <% @foods.each do |food| %>
+          <% if (food.active and food.section.name.downcase == "sides") %>
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="<%= food.url %>" alt="Chicken Quesadilla">
+                  </figure>
                 </div>
+                <header class="card-header">
+                  <p class="card-header-title">
+                    <%= food.name %>
+                  </p>
+                  <p class="container">
+                  </p>
+                  <p class="card-header-title is-right">
+                    £<%= food.price %>
+                  </p>
+                  <p class="card-header-title is-right">
+                    <%= food.calories %> Kcal
+                  </p>
+                  </a>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    <%= food.description %>
+                    <hr>
+                    <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                    <%= f.hidden_field :table_id, value: current_user.table.id %>
+                    <%= f.hidden_field :food_id, value: food.id %>
+                    <%= f.hidden_field :requests, value: "" %>
+                    <%= f.hidden_field :status_id, value: "1" %>
+                  <% end %>
+                  <a href="#" class="card-footer-item" onclick="document.getElementById('add-order-<%= food.id.to_s %>').submit();">Add to order</a>
+                </footer>
               </div>
-            <% end %>
+            </div>
           <% end %>
+        <% end %>
 
-          </div>
         </div>
-        <div class="section is-medium">
-          <p class="title">Desserts</p>
-        </div>
-        <div class="container'">
+      </div>
+
+    <br>
+
+    <p class="title">Desserts</p>
+    <div class="container'">
           <div class="columns">
-
             <% @foods.each do |food| %>
-              <% if (food.active and food.section.name == "desserts".upcase) %>
-                <div class="column">
+              <% if (food.active and food.section.name.downcase == "desserts") %>
+                <div class="column is-one-third">
                   <div class="card">
                     <div class="card-image">
                       <figure class="image is-4by3">
@@ -247,26 +225,18 @@
                     <div class="card-content">
                       <div class="content">
                         <%= food.description %>
-                        <table class="table">
-                          <thead>
-                          <tr>
-                            <th></th>
-                          </tr>
-                          <tr>
-                            <th>Allergies</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr>
-                            <th><%= food.allergens %></th>
-                          </tr>
-                          </tbody>
-                        </table>
+                        <hr>
+                        <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                       </div>
                     </div>
                     <footer class="card-footer">
-                      <a href="#" class="card-footer-item">Edit Order</a>
-                      <a href="#" class="card-footer-item">Add to order</a>
+                      <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                        <%= f.hidden_field :table_id, value: current_user.table.id %>
+                        <%= f.hidden_field :food_id, value: food.id %>
+                        <%= f.hidden_field :requests, value: "" %>
+                        <%= f.hidden_field :status_id, value: "1" %>
+                      <% end %>
+                      <a href="#" class="card-footer-item" onclick="document.getElementById('add-order-<%= food.id.to_s %>').submit();">Add to order</a>
                     </footer>
                   </div>
                 </div>
@@ -275,15 +245,16 @@
 
             </div>
           </div>
-          <div class="section is-medium">
-            <p class="title">Drinks</p>
-          </div>
-          <div class="container'">
+
+    <br>
+
+    <p class="title">Drinks</p>
+    <div class="container'">
             <div class="columns">
 
               <% @foods.each do |food| %>
-                <% if (food.active and food.section.name == "drinks".upcase) %>
-                  <div class="column">
+                <% if (food.active and food.section.name.downcase == "drinks") %>
+                  <div class="column is-one-third">
                     <div class="card">
                       <div class="card-image">
                         <figure class="image is-4by3">
@@ -307,26 +278,18 @@
                       <div class="card-content">
                         <div class="content">
                           <%= food.description %>
-                          <table class="table">
-                            <thead>
-                            <tr>
-                              <th></th>
-                            </tr>
-                            <tr>
-                              <th>Allergies</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                              <th><%= food.allergens %></th>
-                            </tr>
-                            </tbody>
-                          </table>
+                          <hr>
+                          <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                         </div>
                       </div>
                       <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Edit Order</a>
-                        <a href="#" class="card-footer-item">Add to order</a>
+                        <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                          <%= f.hidden_field :table_id, value: current_user.table.id %>
+                          <%= f.hidden_field :food_id, value: food.id %>
+                          <%= f.hidden_field :requests, value: "" %>
+                          <%= f.hidden_field :status_id, value: "1" %>
+                        <% end %>
+                        <a href="#" class="card-footer-item" onclick="document.getElementById('add-order-<%= food.id.to_s %>').submit();">Add to order</a>
                       </footer>
                     </div>
                   </div>
@@ -335,9 +298,5 @@
 
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>

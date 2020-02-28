@@ -3,6 +3,7 @@ class MenuController < ApplicationController
     @call = Call.new
     @foods = Food.all
     @sections = Section.all
+    @order = Order.new
   end
 
   def create

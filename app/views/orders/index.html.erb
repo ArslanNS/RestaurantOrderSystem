@@ -1,0 +1,61 @@
+<!-- Navbar -->
+<section class="hero is-small is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Oaxaca Mexican Food</h1>
+      <h2 class="subtitle">Table Ordering System</h2>
+      <div class="tile is-ancestor">
+        <!-- All other tile elements -->
+        <div class="tile is-parent">
+          <!-- Add content or other tiles -->
+          <article class="tile is-child notification is-dark" onclick="location.href='javascript:history.back()';" style="cursor: pointer">
+            <p class="title">Return to Menu</p>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <%= form_with model: @call, url: {action: "create"}, id: "call-waiter" do |f| %>
+            <%= f.hidden_field :table_id, value: 0 %>
+          <% end %>
+          <article class="tile is-child notification is-dark" onclick="document.getElementById('call-waiter').submit();" style="cursor: pointer">
+            <p class="title">Call Waiter</p>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-dark" onclick="location.href='<%= orders_path %>';" style="cursor: pointer">
+            <p class="title">Orders <i class="fas fa-shopping-cart" style="float: right;"></i></p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hero content: will be in the middle -->
+<div class="menu-body">
+  <div class="container">
+
+    <p class="title">All Orders</p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Food Name</th>
+          <th>Special Requests</th>
+          <th>Status</th>
+          <th>Modify Order</th>
+        </tr>
+      </thead>
+      <tboady>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.food.name %></td>
+            <td><%= order.requests.camelcase %></td>
+            <td><%= order.status.name.camelcase %></td>
+            <td><%= link_to 'Cancel', order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tboady>
+    </table>
+
+  </div>
+</div>
