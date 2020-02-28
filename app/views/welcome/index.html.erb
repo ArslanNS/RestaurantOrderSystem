@@ -11,7 +11,7 @@
       <div class="tile is-ancestor">
         <div class="tile is-parent">
           <%= form_with model: @call, url: {controller: "menu", action: "create"}, id: "call-waiter" do |f| %>
-            <%= f.hidden_field :table_id, value: current_user.table.number %>
+            <%= f.hidden_field :table_id, value: current_user.table.id %>
           <% end %>
           <article class="tile is-child notification is-dark" onclick="document.getElementById('call-waiter').submit();" style="cursor: pointer">
             <p class="title">Request Waiter for Help</p>

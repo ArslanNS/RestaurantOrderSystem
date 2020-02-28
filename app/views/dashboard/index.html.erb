@@ -125,7 +125,7 @@
             </thead>
             <% @calls.each do |call| %>
               <tr>
-                <td><%= call.id %></td>
+                <td><%= call.table.number %></td>
                 <td><%= call.created_at %></td>
                 <td><%= call.attended %></td>
                 <td><button class="button" style="cursor: pointer">
@@ -152,14 +152,16 @@
               </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>1</td>
-              <td>Table 5</td>
-              <td>Chicken Quesedilla</td>
-              <td>No cheese</td>
-              <td><span class="tag is-link">Cooking</span></td>
-              <td>01.01.2020 5:52:00pm</td>
-            </tr>
+            <%@orders.each do |order| %>
+              <tr>
+                <td><%= order.id %></td>
+                <td><%= order.table.name %></td>
+                <td><%= order.food.name %></td>
+                <td><%= order.requests %></td>
+                <td><span class="tag is-link"><%= order.status.name %></span></td>
+                <td><%= order.created_at %></td>
+              </tr>
+            <% end %>
             </tbody>
           </table>
         </section>

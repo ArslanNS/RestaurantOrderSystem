@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
   # GET /foods.json
   def index
     @calls = Call.all
+    @orders = Order.all
   end
 
   # GET /foods/1
