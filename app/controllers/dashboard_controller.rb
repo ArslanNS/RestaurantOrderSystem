@@ -12,10 +12,15 @@ class DashboardController < ApplicationController
   def show
   end
 
-  private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_food
-    @call = Call.find(params[:id])
+  def update_note
+
+    @call = Call.find_by(:id)
+
+    if @call.update(call_params)
+      @updated = "true"
+    else
+      @updated = "false"
+    end
   end
 
 end
