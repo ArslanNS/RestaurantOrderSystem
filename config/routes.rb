@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :menu, only: [:index, :create]
+  resources :menu, only: [:index, :create, :update]
   resources :orders, only: [:index, :create, :destroy]
 
   resources :dashboard, only: [:index]

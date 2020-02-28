@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   # GET /foods
   # GET /foods.json
   def index
-    @call = Call.all
+    @calls = Call.all
   end
 
   # GET /foods/1
