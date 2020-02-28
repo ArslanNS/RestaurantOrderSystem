@@ -51,7 +51,7 @@
             <td><%= order.food.name %></td>
             <td><%= order.requests.camelcase %></td>
             <td><%= order.status.name.camelcase %></td>
-            <td>Cancel</td>
+            <td><%= link_to 'Cancel', order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tboady>
