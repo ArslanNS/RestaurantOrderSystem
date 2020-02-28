@@ -113,21 +113,19 @@
       <div class="table-container">
         <section class="info-tiles">
           <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+            <h1 class="subtitle is-5">Calls:</h1>
             <thead>
             <tr>
               <th>Table</th>
               <th>Time requested</th>
-              <th>Time acknowledged</th>
+              <th>Attended Status</th>
             </tr>
             </thead>
-            <% @call.each do |calls| %>
+            <% @calls.each do |call| %>
               <tr>
-                <td><%= calls.id %></td>
-                <td><%= calls.created_at %></td>
-                <td><%= calls.description %></td>
-                <td><%= link_to 'Show', dashboard_food_path(food) %></td>
-                <td><%= link_to 'Edit', edit_dashboard_food_path(food) %></td>
-                <td><%= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= call.id %></td>
+                <td><%= call.created_at %></td>
+                <td><%= call.attended %></td>
               </tr>
             <% end %>
           </table>
