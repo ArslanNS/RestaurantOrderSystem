@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_140510) do
+ActiveRecord::Schema.define(version: 2020_02_27_205026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 2020_02_25_140510) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "table_id", null: false
+    t.bigint "food_id", null: false
+    t.string "requests"
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_id"], name: "index_orders_on_food_id"
+    t.index ["status_id"], name: "index_orders_on_status_id"
+    t.index ["table_id"], name: "index_orders_on_table_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -55,6 +67,12 @@ ActiveRecord::Schema.define(version: 2020_02_25_140510) do
   end
 
   create_table "sections", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -91,5 +109,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_140510) do
 
   add_foreign_key "calls", "tables"
   add_foreign_key "foods", "sections"
+  add_foreign_key "orders", "foods"
+  add_foreign_key "orders", "statuses"
+  add_foreign_key "orders", "tables"
   add_foreign_key "users", "tables"
 end
