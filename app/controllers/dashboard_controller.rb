@@ -23,4 +23,9 @@ class DashboardController < ApplicationController
     end
   end
 
+  private
+  def call_params
+    params.require(:call)
+  end
+
 end
