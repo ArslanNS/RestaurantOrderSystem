@@ -12,10 +12,8 @@ class DashboardController < ApplicationController
   def show
   end
 
-  def update_note
-
+  def update
     @call = Call.find_by(:id)
-
     if @call.update(call_params)
       @updated = "true"
     else

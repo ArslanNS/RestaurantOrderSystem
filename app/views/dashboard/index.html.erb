@@ -121,13 +121,14 @@
               <th>Acknowledged</th>
             </tr>
             </thead>
+            <%= form_with model: @call, url: {controller: "menu", action: "create"}, id: "call-accept" do |f| %>
+              <%= f.hidden_field :attended, value: TRUE %>
+            <% end %>
             <% @call.each do |calls| %>
               <tr>
                 <td><%= calls.table_id %></td>
                 <td><%= calls.created_at %></td>
-                <%= form_with model: @call, url: {controller: "menu", action: "create"}, id: "call-accept" do |f| %>
-                  <%= f.hidden_field :table_id, value: current_user.table.number %>
-                <% end %>
+
                 <td>
                   <button class="button" onclick="document.getElementById('call-accept').submit();" style="cursor: pointer">
                   Acknowledge
