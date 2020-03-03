@@ -131,7 +131,13 @@
               <tr>
                 <td><%= call.table.number %></td>
                 <td><%= call.created_at %></td>
-                <td><%= call.attended %></td>
+                <td>
+                  <% if call.attended %>
+                    Yes
+                  <% else %>
+                    No
+                  <% end %>
+                </td>
                 <td><button class="button" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">
                   Acknowledge
                 </button></td>
