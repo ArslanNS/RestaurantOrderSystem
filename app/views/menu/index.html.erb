@@ -3,7 +3,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">Oaxaca Mexican Food</h1>
-      <h2 class="subtitle">Table Ordering System</h2>
+      <h2 class="subtitle">You're Seated at Table: <%= current_user.table.number %></h2>
       <div class="tile is-ancestor">
         <!-- All other tile elements -->
         <div class="tile is-parent">
@@ -14,15 +14,15 @@
         </div>
         <div class="tile is-parent">
           <%= form_with model: @call, url: {action: "create"}, id: "call-waiter" do |f| %>
-            <%= f.hidden_field :table_id, value: 0 %>
+            <%= f.hidden_field :table_id, value: current_user.table.id %>
           <% end %>
           <article class="tile is-child notification is-dark" onclick="document.getElementById('call-waiter').submit();" style="cursor: pointer">
-            <p class="title">Call Waiter</p>
+            <p class="title">Request Waiter for Help</p>
           </article>
         </div>
         <div class="tile is-parent">
-          <article class="tile is-child notification is-dark" onclick="location.href='http://www.google.com';" style="cursor: pointer">
-            <p class="title">Checkout <i class="fas fa-shopping-cart" style="float: right;"></i></p>
+          <article class="tile is-child notification is-dark" onclick="location.href='<%= orders_path %>';" style="cursor: pointer">
+            <p class="title">Orders <i class="fas fa-shopping-cart" style="float: right;"></i></p>
           </article>
         </div>
       </div>
@@ -74,8 +74,13 @@
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Edit Order</a>
-                  <a href="#" class="card-footer-item">Add to order</a>
+                  <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                    <%= f.hidden_field :table_id, value: current_user.table.id %>
+                    <%= f.hidden_field :food_id, value: food.id %>
+                    <%= f.hidden_field :requests, value: "" %>
+                    <%= f.hidden_field :status_id, value: "1" %>
+                  <% end %>
+                  <a href="#" class="card-footer-item" onclick="document.getElementById('add-order-<%= food.id.to_s %>').submit();">Add to order</a>
                 </footer>
               </div>
             </div>
@@ -120,8 +125,13 @@
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Edit Order</a>
-                  <a href="#" class="card-footer-item">Add to order</a>
+                  <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                    <%= f.hidden_field :table_id, value: current_user.table.id %>
+                    <%= f.hidden_field :food_id, value: food.id %>
+                    <%= f.hidden_field :requests, value: "" %>
+                    <%= f.hidden_field :status_id, value: "1" %>
+                  <% end %>
+                  <a href="#" class="card-footer-item" onclick="document.getElementById('add-order-<%= food.id.to_s %>').submit();">Add to order</a>
                 </footer>
               </div>
             </div>
@@ -168,8 +178,13 @@
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Edit Order</a>
-                  <a href="#" class="card-footer-item">Add to order</a>
+                  <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                    <%= f.hidden_field :table_id, value: current_user.table.id %>
+                    <%= f.hidden_field :food_id, value: food.id %>
+                    <%= f.hidden_field :requests, value: "" %>
+                    <%= f.hidden_field :status_id, value: "1" %>
+                  <% end %>
+                  <a href="#" class="card-footer-item" onclick="document.getElementById('add-order-<%= food.id.to_s %>').submit();">Add to order</a>
                 </footer>
               </div>
             </div>
@@ -215,8 +230,13 @@
                       </div>
                     </div>
                     <footer class="card-footer">
-                      <a href="#" class="card-footer-item">Edit Order</a>
-                      <a href="#" class="card-footer-item">Add to order</a>
+                      <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                        <%= f.hidden_field :table_id, value: current_user.table.id %>
+                        <%= f.hidden_field :food_id, value: food.id %>
+                        <%= f.hidden_field :requests, value: "" %>
+                        <%= f.hidden_field :status_id, value: "1" %>
+                      <% end %>
+                      <a href="#" class="card-footer-item" onclick="document.getElementById('add-order-<%= food.id.to_s %>').submit();">Add to order</a>
                     </footer>
                   </div>
                 </div>
@@ -263,8 +283,13 @@
                         </div>
                       </div>
                       <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Edit Order</a>
-                        <a href="#" class="card-footer-item">Add to order</a>
+                        <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                          <%= f.hidden_field :table_id, value: current_user.table.id %>
+                          <%= f.hidden_field :food_id, value: food.id %>
+                          <%= f.hidden_field :requests, value: "" %>
+                          <%= f.hidden_field :status_id, value: "1" %>
+                        <% end %>
+                        <a href="#" class="card-footer-item" onclick="document.getElementById('add-order-<%= food.id.to_s %>').submit();">Add to order</a>
                       </footer>
                     </div>
                   </div>
