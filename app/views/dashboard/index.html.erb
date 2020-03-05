@@ -125,14 +125,16 @@
               </tr>
             </thead>
             <tbody>
+            <% @orders.each do |order| %>
             <tr>
-              <td>1</td>
-              <td>Table 5</td>
-              <td>Chicken Quesedilla</td>
-              <td>No cheese</td>
-              <td><span class="tag is-link">Cooking</span></td>
-              <td>01.01.2020 5:52:00pm</td>
+              <td><%= order.id %></td>
+              <td><%= order.table.name %></td>
+              <td><%= order.food.name %></td>
+              <td><%= order.requests %></td>
+              <td><span class="tag is-link"><%= order.status.name.camelcase %></span></td>
+              <td><%= order.created_at.strftime("%d %h %Y %H:%M:%S") %></td>
             </tr>
+            <% end %>
             </tbody>
           </table>
         </section>
