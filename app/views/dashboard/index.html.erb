@@ -11,7 +11,8 @@
   <!-- Bulma Version 0.8.x-->
   <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="../css/admin.css">
-  <meta http-equiv="refresh" content="5">
+  <!-- Page refresh every 5 secs -->
+<!--  <meta http-equiv="refresh" content="5">-->
 </head>
 
 <body>
@@ -120,17 +121,30 @@
               <th>Table</th>
               <th>Time Requested</th>
               <th>Attended</th>
-              <th>Acknowledge</th>
+              <th>Acknowledge Call</th>
             </tr>
             </thead>
             <% @calls.each do |call| %>
+              <%= form_with model: call, url: '/dashboard/'+call.id.to_s, id: "ack-call-"+call.id.to_s do |f| %>
+                <%= f.hidden_field :id, value: call.id %>
+              <% end %>
               <tr>
                 <td><%= call.table.number %></td>
                 <td><%= call.created_at %></td>
-                <td><%= call.attended %></td>
-                <td><button class="button" style="cursor: pointer">
-                  Acknowledge
-                </button></td>
+                <td>
+                  <% if call.attended %>
+                    Yes
+                  <% else %>
+                    No
+                  <% end %>
+                </td>
+                <td>
+                  <% if call.attended %>
+                    <button class="button" style="cursor: pointer" disabled>Acknowledge</button>
+                  <% else %>
+                    <button class="button" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">Acknowledge</button>
+                  <% end %>
+                </td>
               </tr>
             <% end %>
           </table>
