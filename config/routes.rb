@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :menu, only: [:index, :create, :update]
   resources :orders, only: [:index, :create, :destroy]
 
-  resources :dashboard, only: [:index]
+  resources :dashboard, only: [:index, :update]
   namespace :dashboard do
     resources :foods, controller: '/foods'
     resources :kitchen, controller: '/kitchen'
