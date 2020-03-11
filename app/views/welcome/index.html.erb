@@ -1,0 +1,42 @@
+<!-- Navbar -->
+<section class="hero is-small is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Oaxaca Mexican Food
+      </h1>
+      <h2 class="subtitle">
+        You're Seated at Table: <%= current_user.table.number %>
+      </h2>
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <%= form_with model: @call, url: {controller: "menu", action: "create"}, id: "call-waiter" do |f| %>
+            <%= f.hidden_field :table_id, value: current_user.table.id %>
+          <% end %>
+          <article class="tile is-child notification is-dark" onclick="document.getElementById('call-waiter').submit();" style="cursor: pointer">
+            <p class="title">Request Waiter for Help</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hero content: will be in the middle -->
+<div class="hero-body">
+  <div class="container">
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <article class="food-button tile is-child notification is-light" onclick="location.href='/menu';" style="cursor: pointer">
+            <div class="columns">
+              <div class="column food-text is-5-desktop is-4-widescreen">
+                <p class="title">View Menu and Order</p>
+                <p class="subtitle">Dive into our amazing menu.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+  </div>
+</div>
+

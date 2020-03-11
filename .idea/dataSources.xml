@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Rails TeamProject2020_13: development" uuid="6cc84503-9585-492f-b6ec-a0ac699b088f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/TeamProject2020_13_development</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails TeamProject2020_13: production" uuid="fd6c6dfd-c42a-438f-be4c-1e789bcbe182">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/TeamProject2020_13_production</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails TeamProject2020_13: test" uuid="e5a7d81e-64c0-4659-a95d-2a46c97a41da">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/TeamProject2020_13_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails master: default" uuid="8c52826f-53f8-4884-affb-97fa43a7ab7f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/menu</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails master: development" uuid="3dc5e063-e59d-4fd5-8830-9d712716a18e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/menu</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails master: test" uuid="fbcf3fb1-f62c-488d-97e5-930dfb19a483">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/menu</jdbc-url>
+    </data-source>
+  </component>
+</project>
