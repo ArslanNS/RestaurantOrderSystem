@@ -132,7 +132,7 @@
               <td><%= order.food.name %></td>
               <td><%= order.requests %></td>
               <td><span class="tag is-link"><%= order.status.name.camelcase %></span></td>
-              <td><%= order.created_at.strftime("%d %h %Y %H:%M:%S") %></td>
+              <td><%= order.created_at.strftime("%H:%M:%S %d %h %Y") %></td>
             </tr>
             <% end %>
             </tbody>
