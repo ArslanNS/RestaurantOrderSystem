@@ -160,10 +160,9 @@
                 <td><%= order.table.name %></td>
                 <td><%= order.food.name %></td>
                 <td><%= order.requests %></td>
-
                 <td><span class="tag is-link"><%= order.status.name %></span></td>
                 <td><%= order.created_at %></td>
-                <td><input onclick="func()" id="accountDetails" type="button" value="click"/></td>
+                <td><input type="checkbox" id="checkbox1" autocomplete="off"/></td>
               </tr>
             <% end %>
             </tbody>
@@ -175,12 +174,5 @@
   </div>
 </div>
 <script async type="text/javascript" src="../js/bulma.js"></script>
-<script type="text/javascript">
-    function func(){
-        var submit = document.getElementById("accountDetails").value = "CONFIRMED";
-
-
-    };
-</script>
 </body>
 </html>
