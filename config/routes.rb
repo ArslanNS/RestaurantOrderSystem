@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :billing, only: [:index]
+  get '/card/new' => 'billing#new_card', as: :add_payment_method
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
