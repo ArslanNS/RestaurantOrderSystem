@@ -11,6 +11,12 @@
   <!-- Bulma Version 0.8.x-->
   <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="../css/admin.css">
+
+  <style>
+    :target{
+      display: block !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -107,11 +113,34 @@
                 <%next if order.status.name == "served" %>
                 <%next if order.status.name == "cancelled" %>
                 <tr>
+                  <%= form_with model: order, url: '/dashboard/kitchen/'+order.id.to_s, id: "move-order-"+order.id.to_s do |f| %>
+                    <%= f.hidden_field :id, value: order.id %>
+                  <% end %>
                   <td><%= order.table.name %></td>
-                  <td><%= if order.status.name == "confirmed"; order.food.name end%></td>
-                  <td><%= if order.status.name == "cooking"; order.food.name end%></td>
-                  <td><%= if order.status.name == "ready"; order.food.name end%></td>
-                  <td><%=  %></td>
+                  <td>
+                    <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "confirmed"; order.food.name end%></a>
+                    <div id="collapse<%= if order.status.name == "confirmed"; order.id.to_s end%>" style="display:none">
+                      <h4>Notes: <%= order.requests %></h4>
+                      <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
+                      <button class="button" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order -></button>
+                    </div>
+                  </td>
+                  <td>
+                    <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "cooking"; order.food.name end%></a>
+                    <div id="collapse<%= if order.status.name == "cooking"; order.id.to_s end %>" style="display:none">
+                      <h4>Notes: <%= order.requests %></h4>
+                      <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
+                      <button class="button" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order -></button>
+                    </div>
+                  </td>
+                  <td>
+                    <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "ready"; order.food.name end%></a>
+                    <div id="collapse<%= if order.status.name == "ready"; order.id.to_s end %>" style="display:none">
+                      <h4>Notes: <%= order.requests %></h4>
+                      <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
+                      <button class="button" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order -></button>
+                    </div>
+                  </td>
                 </tr>
               <% end %>
             <% end %>
