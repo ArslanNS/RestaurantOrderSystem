@@ -93,14 +93,29 @@
         <section class="info-tiles">
           <table class="table is-bordered is-striped is-fullwidth is-hoverable">
             <thead>
-            <tr>
-              <th>On hold</th>
-              <th>Being prepared</th>
-              <th>Ready to go</th>
-              <th>Served</th>
-            </tr>
+              <tr>
+                <th>Table</th>
+                <th>Confirmed</th>
+                <th>Cooking</th>
+                <th>Ready to go</th>
+              </tr>
             </thead>
-
+            <tbody>
+            <%@tables.each do |table| %>
+              <%@orders = table.orders %>
+              <%@orders.each do |order| %>
+                <%next if order.status.name == "served" %>
+                <%next if order.status.name == "cancelled" %>
+                <tr>
+                  <td><%= order.table.name %></td>
+                  <td><%= if order.status.name == "confirmed"; order.food.name end%></td>
+                  <td><%= if order.status.name == "cooking"; order.food.name end%></td>
+                  <td><%= if order.status.name == "ready"; order.food.name end%></td>
+                  <td><%=  %></td>
+                </tr>
+              <% end %>
+            <% end %>
+            </tbody>
 
           </table>
         </section>
