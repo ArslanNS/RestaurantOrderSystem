@@ -19,9 +19,7 @@ class OrdersController < ApplicationController
     redirect_to orders_index_path
   end
 
-  def confirm
-    orderconfirm = true
-  end
+
 
   private
   def order_params

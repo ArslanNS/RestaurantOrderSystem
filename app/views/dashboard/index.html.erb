@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -162,7 +163,7 @@
 
                 <td><span class="tag is-link"><%= order.status.name %></span></td>
                 <td><%= order.created_at %></td>
-                <td><p>Order is unconfirmed</p><button onclick="confirm()">Confirm order</button></td>
+                <td><input onclick="func()" id="accountDetails" type="button" value="click"/></td>
               </tr>
             <% end %>
             </tbody>
@@ -174,5 +175,12 @@
   </div>
 </div>
 <script async type="text/javascript" src="../js/bulma.js"></script>
+<script type="text/javascript">
+    function func(){
+        var submit = document.getElementById("accountDetails").value = "CONFIRMED";
+
+
+    };
+</script>
 </body>
 </html>
