@@ -34,78 +34,79 @@
 <div class="menu-body">
   <section class="hero is-small is-info is-bold">
     <div class="hero-body">
-        <div class="container">
-          <h1 class="title">Filters</h1>
-          <h2 class="subtitle">Please select your allergies</h2>
-        </div>
-        <div class= "container">
-          <%= check_box_tag :corn, 1, true %> Corn
-        </div>
-        <div class= "container">
-          <%= check_box_tag :Milk, 1, true %> Milk
-        </div>
-          <div class= "container">
-          <%= check_box "Soy", 'yes', id:"Soy"%> Soy
-          </div>
-        <div class= "container">
-          <%= check_box "Gluten", 'yes', id:"Gluten"%> Gluten
-        </div>
+      <div class="container">
+        <h1 class="title">Filters</h1>
+        <h2 class="subtitle">Please select your allergies</h2>
+      </div>
+      <div class= "container">
+        <%= check_box_tag :corn, 1, true %> Corn
+      </div>
+      <div class= "container">
+        <%= check_box_tag :milk, 1, true %> Milk
+      </div>
+      <div class= "container">
+        <%= check_box_tag :soy, 1, true %> Soy
+      </div>
+      <div class= "container">
+        <%= check_box "Gluten", 'yes', id:"Gluten"%> Gluten
+      </div>
     </div>
   </section>
 
-    <br>
+  <br>
 
-    <p class="title">Starters</p>
-    <div class="container">
-      <div class="columns">
-        <% if :corn != '1' %>
-          <% @foods.each do |food| %>
-            <% if (food.active and food.section.name.downcase == "starters") %>
-              <div class="column is-one-third">
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <img src="<%= food.url %>" alt="Chicken Quesadilla">
-                    </figure>
-                  </div>
-                  <header class="card-header">
-                    <p class="card-header-title">
-                      <%= food.name %>
-                    </p>
-                    <p class="container">
-                    </p>
-                    <p class="card-header-title is-right">
-                      £<%= food.price %>
-                    </p>
-                    <p class="card-header-title is-right">
-                      <%= food.calories %> Kcal
-                    </p>
-                    </a>
-                  </header>
-                  <div class="card-content">
-                    <div class="content">
-                      <%= food.description %>
-                      <hr>
-                      <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="#" class="card-footer-item">Edit Order</a>
-                    <a href="#" class="card-footer-item">Add to order</a>
-                  </footer>
+  <p class="title">Starters</p>
+  <div class="container">
+    <div class="columns">
+      <% if :corn != '1' %>
+        <% @foods.each do |food| %>
+          <% if (food.active and food.section.name.downcase == "starters") %>
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="<%= food.url %>" alt="Chicken Quesadilla">
+                  </figure>
                 </div>
+                <header class="card-header">
+                  <p class="card-header-title">
+                    <%= food.name %>
+                  </p>
+                  <p class="container">
+                  </p>
+                  <p class="card-header-title is-right">
+                    £<%= food.price %>
+                  </p>
+                  <p class="card-header-title is-right">
+                    <%= food.calories %> Kcal
+                  </p>
+                  </a>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    <%= food.description %>
+                    <hr>
+                    <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="#" class="card-footer-item">Edit Order</a>
+                  <a href="#" class="card-footer-item">Add to order</a>
+                </footer>
               </div>
-            <% end %>
+            </div>
           <% end %>
         <% end %>
-      </div>
+      <% end %>
     </div>
+  </div>
 
-    <br>
+  <br>
 
-    <p class="title">Mains</p>
-    <div class="container'">
-      <div class="columns">
+  <p class="title">Mains</p>
+  <div class="container'">
+    <div class="columns">
+      <% if :soy != '1' %>
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name.downcase == "mains") %>
             <div class="column is-one-third">
@@ -144,64 +145,64 @@
             </div>
           <% end %>
         <% end %>
+      <%end %>
+    </div>
+  </div>
 
-        </div>
-      </div>
+  <br>
 
-    <br>
+  <p class="title">Sides</p>
+  <div class="container'">
+    <div class="columns">
 
-    <p class="title">Sides</p>
-    <div class="container'">
-      <div class="columns">
-
-        <% @foods.each do |food| %>
-          <% if (food.active and food.section.name.downcase == "sides") %>
-            <div class="column is-one-third">
-              <div class="card">
-                <div class="card-image">
-                  <figure class="image is-4by3">
-                    <img src="<%= food.url %>" alt="Chicken Quesadilla">
-                  </figure>
-                </div>
-                <header class="card-header">
-                  <p class="card-header-title">
-                    <%= food.name %>
-                  </p>
-                  <p class="container">
-                  </p>
-                  <p class="card-header-title is-right">
-                    £<%= food.price %>
-                  </p>
-                  <p class="card-header-title is-right">
-                    <%= food.calories %> Kcal
-                  </p>
-                  </a>
-                </header>
-                <div class="card-content">
-                  <div class="content">
-                    <%= food.description %>
-                    <hr>
-                    <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
-                  </div>
-                </div>
-                <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Edit Order</a>
-                  <a href="#" class="card-footer-item">Add to order</a>
-                </footer>
+      <% @foods.each do |food| %>
+        <% if (food.active and food.section.name.downcase == "sides") %>
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="<%= food.url %>" alt="Chicken Quesadilla">
+                </figure>
               </div>
+              <header class="card-header">
+                <p class="card-header-title">
+                  <%= food.name %>
+                </p>
+                <p class="container">
+                </p>
+                <p class="card-header-title is-right">
+                  £<%= food.price %>
+                </p>
+                <p class="card-header-title is-right">
+                  <%= food.calories %> Kcal
+                </p>
+                </a>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <%= food.description %>
+                  <hr>
+                  <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">Edit Order</a>
+                <a href="#" class="card-footer-item">Add to order</a>
+              </footer>
             </div>
-          <% end %>
+          </div>
         <% end %>
+      <% end %>
 
-        </div>
-      </div>
+    </div>
+  </div>
 
-    <br>
+  <br>
 
   <p class="title">Desserts</p>
   <div class="container'">
     <div class="columns">
-      <% if :corn != '1' %>
+      <% if :milk != '1' %>
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name.downcase == "desserts") %>
             <div class="column is-one-third">
@@ -244,52 +245,52 @@
     </div>
   </div>
 
-    <br>
+  <br>
 
-    <p class="title">Drinks</p>
-    <div class="container'">
-            <div class="columns">
+  <p class="title">Drinks</p>
+  <div class="container'">
+    <div class="columns">
 
-              <% @foods.each do |food| %>
-                <% if (food.active and food.section.name.downcase == "drinks") %>
-                  <div class="column is-one-third">
-                    <div class="card">
-                      <div class="card-image">
-                        <figure class="image is-4by3">
-                          <img src="<%= food.url %>" alt="Chicken Quesadilla">
-                        </figure>
-                      </div>
-                      <header class="card-header">
-                        <p class="card-header-title">
-                          <%= food.name %>
-                        </p>
-                        <p class="container">
-                        </p>
-                        <p class="card-header-title is-right">
-                          £<%= food.price %>
-                        </p>
-                        <p class="card-header-title is-right">
-                          <%= food.calories %> Kcal
-                        </p>
-                        </a>
-                      </header>
-                      <div class="card-content">
-                        <div class="content">
-                          <%= food.description %>
-                          <hr>
-                          <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
-                        </div>
-                      </div>
-                      <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Edit Order</a>
-                        <a href="#" class="card-footer-item">Add to order</a>
-                      </footer>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-
+      <% @foods.each do |food| %>
+        <% if (food.active and food.section.name.downcase == "drinks") %>
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="<%= food.url %>" alt="Chicken Quesadilla">
+                </figure>
               </div>
+              <header class="card-header">
+                <p class="card-header-title">
+                  <%= food.name %>
+                </p>
+                <p class="container">
+                </p>
+                <p class="card-header-title is-right">
+                  £<%= food.price %>
+                </p>
+                <p class="card-header-title is-right">
+                  <%= food.calories %> Kcal
+                </p>
+                </a>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <%= food.description %>
+                  <hr>
+                  <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">Edit Order</a>
+                <a href="#" class="card-footer-item">Add to order</a>
+              </footer>
             </div>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
   </div>
+</div>
 </div>
