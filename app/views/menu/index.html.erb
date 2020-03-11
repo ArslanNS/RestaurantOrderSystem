@@ -39,7 +39,7 @@
           <h2 class="subtitle">Please select your allergies</h2>
         </div>
         <div class= "container">
-          <%= check_box_tag "Corn[]" %> Corn
+          <%= check_box_tag :corn, 1, true %> Corn
         </div>
         <div class= "container">
          <%= check_box "Milk", 'yes', id:"Milk"%> Milk
@@ -58,8 +58,8 @@
     <p class="title">Starters</p>
     <div class="container">
       <div class="columns">
-        <% @foods.each do |food| %>
-          <% if params[:Corn] == 1 %>
+        <% if :corn != '1' %>
+          <% @foods.each do |food| %>
             <% if (food.active and food.section.name.downcase == "starters") %>
               <div class="column is-one-third">
                 <div class="card">
