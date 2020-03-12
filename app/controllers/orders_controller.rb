@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.where(table: current_user.table)
+      #@batches = Batches.all
   end
 
   def create
