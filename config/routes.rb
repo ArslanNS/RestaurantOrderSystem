@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :foods, controller: '/foods'
   end
 
-  get '/card/new' => 'billing#new_card', as: :add_payment_method
+  get '/card/new' => 'billing#new_card', as: :add_payment_method, xhr:true
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
