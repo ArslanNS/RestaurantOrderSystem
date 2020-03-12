@@ -19,8 +19,6 @@ class OrdersController < ApplicationController
     redirect_to orders_index_path
   end
 
-
-
   private
   def order_params
     params.require(:order).permit(:table_id, :food_id, :requests, :status_id)

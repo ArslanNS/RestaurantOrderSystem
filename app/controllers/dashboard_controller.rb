@@ -13,6 +13,21 @@ class DashboardController < ApplicationController
   def show
   end
 
+
+
+  def confirm
+    @order = Order.find(params[:id])
+
+    if @order.update(status_id: 1 )
+
+      redirect_to orders_index_path
+    end
+  end
+
+  helper_method :confirm
+
+
+
   def update
     @call = Call.find_by(:id)
     if @call.update(call_params)

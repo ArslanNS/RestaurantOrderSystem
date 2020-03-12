@@ -162,7 +162,7 @@
                 <td><%= order.requests %></td>
                 <td><span class="tag is-link"><%= order.status.name %></span></td>
                 <td><%= order.created_at %></td>
-                <td><input type="checkbox" id="checkbox1" autocomplete="off" onclick = "save()"/></td>
+                <td><%= button_to 'Call Action', method: confirm %></td>
               </tr>
             <% end %>
             </tbody>
@@ -174,14 +174,7 @@
   </div>
 </div>
 <script async type="text/javascript" src="../js/bulma.js"></script>
-<script>
-    function save(){
-      var checkbox = document.getElementById('checkbox1');
-      if(document.getElementById('checkbox1').checked) {
-        localStorage.setItem('checkbox1', true);
-      }
-    }
-</script>
+
 
 </body>
 </html>
