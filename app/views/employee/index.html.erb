@@ -42,14 +42,14 @@
         </p>
         <ul class="menu-list">
           <li><a href="/dashboard">Dashboard</a></li>
-          <li><a class="is-active">Menu</a></li>
+          <li><a href="/dashboard/foods">Menu</a></li>
           <li><a href="/dashboard/kitchen">Kitchen</a></li>
         </ul>
         <p class="menu-label">
           Administration
         </p>
         <ul class="menu-list">
-          <li><a href="/dashboard/employee">Employee Management</a></li>
+          <li><a class="is-active">Employee Management</a></li>
         </ul>
         <p class="menu-label">
           Transactions
@@ -67,10 +67,10 @@
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
-              Menu alterations.
+              Employee management.
             </h1>
             <h2 class="subtitle">
-              Add, modify and remove records from this page
+              Add, modify and remove employees from this page.
             </h2>
           </div>
         </div>
@@ -79,8 +79,8 @@
         <div class="tile is-ancestor has-text-centered">
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title"><%= @foods.count %></p>
-              <p class="subtitle">Menu items</p>
+              <p class="title">0</p>
+              <p class="subtitle">Employees</p>
             </article>
           </div>
         </div>
@@ -89,39 +89,39 @@
 
       <div class="table-container">
         <section class="info-tiles">
-        <table class="table is-bordered is-striped is-fullwidth is-hoverable">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Section</th>
-            <th>Description</th>
-            <th>Allergens</th>
-            <th>Calories</th>
-            <th>Price</th>
-            <th>Shown on menu</th>
-          </tr>
-          </thead>
+<!--          <table class="table is-bordered is-striped is-fullwidth is-hoverable">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--              <th>Name</th>-->
+<!--              <th>Section</th>-->
+<!--              <th>Description</th>-->
+<!--              <th>Allergens</th>-->
+<!--              <th>Calories</th>-->
+<!--              <th>Price</th>-->
+<!--              <th>Shown on menu</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
 
-          <% @foods.each do |food| %>
-            <tr>
-              <td><%= food.name %></td>
-              <td><%= food.section.name %></td>
-              <td><%= food.description %></td>
-              <td><%= food.allergens %></td>
-              <td><%= food.calories %></td>
-              <td><%= food.price %></td>
-              <td><%= food.active %></td>
-              <td><%= link_to 'Show', dashboard_food_path(food) %></td>
-              <td><%= link_to 'Edit', edit_dashboard_food_path(food) %></td>
-              <td><%= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-        </table>
+            <%# @foods.each do |food| %>
+<!--              <tr>-->
+<!--                <td><%#= food.name %></td>-->
+<!--                <td><%#= food.section.name %></td>-->
+<!--                <td><%#= food.description %></td>-->
+<!--                <td><%#= food.allergens %></td>-->
+<!--                <td><%#= food.calories %></td>-->
+<!--                <td><%#= food.price %></td>-->
+<!--                <td><%#= food.active %></td>-->
+<!--                <td><%#= link_to 'Show', dashboard_food_path(food) %></td>-->
+<!--                <td><%#= link_to 'Edit', edit_dashboard_food_path(food) %></td>-->
+<!--                <td><%#= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--              </tr>-->
+            <%# end %>
+<!--          </table>-->
         </section>
       </div>
 
       <br>
-      <%= link_to 'New Food', new_dashboard_food_path %>
+      <%= link_to 'New employee', new_dashboard_food_path %>
     </div>
   </div>
 </div>
