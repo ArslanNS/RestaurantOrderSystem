@@ -103,6 +103,6 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # Stripe payment config
-  config.stripe.secret_key = Rails.application.credentials.stripe[:production][:secret_key]
-  config.stripe.publishable_key = Rails.application.credentials.stripe[:production][:publishable_key]
+  #config.stripe.secret_key = Rails.application.credentials.stripe[:production][:secret_key]
+  #config.stripe.publishable_key = Rails.application.credentials.stripe[:production][:publishable_key]
 end
