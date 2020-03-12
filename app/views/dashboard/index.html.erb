@@ -12,7 +12,7 @@
   <!-- Bulma Version 0.8.x-->
   <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="../css/admin.css">
-  <meta http-equiv="refresh" content="5">
+<!--  <meta http-equiv="refresh" content="5">-->
 </head>
 
 <body>
@@ -150,7 +150,6 @@
                 <th>Requests</th>
                 <th>Status</th>
                 <th>Date and Time</th>
-                <th> Confirmation</th>
               </tr>
             </thead>
             <tbody>
@@ -160,9 +159,8 @@
                 <td><%= order.table.name %></td>
                 <td><%= order.food.name %></td>
                 <td><%= order.requests %></td>
-                <td><span class="tag is-link"><%= order.status.name %></span></td>
+                <td><span class="tag is-link"><%= order.status.name %></span> <%=link_to("Confirm", :onclick => confirm(order.id)) %></td>
                 <td><%= order.created_at %></td>
-                <td><%= button_to 'Call Action', method: confirm %></td>
               </tr>
             <% end %>
             </tbody>

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :create, :destroy]
 
   resources :dashboard, only: [:index]
-
+  resources :dashboard do
+    post 'index'
+  end
 
   namespace :dashboard do
     resources :foods, controller: '/foods'

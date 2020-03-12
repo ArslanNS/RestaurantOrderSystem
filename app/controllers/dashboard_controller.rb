@@ -15,16 +15,19 @@ class DashboardController < ApplicationController
 
 
 
-  def confirm
-    @order = Order.find(params[:id])
+  def confirm(ordersss)
+    orderid = ordersss
+    orderid.to_i
+    currentorder = Order.find(orderid)
+    currentorder.status_id = 1
+    currentorder.save
 
-    if @order.update(status_id: 1 )
-
-      redirect_to orders_index_path
-    end
   end
 
   helper_method :confirm
+
+  def create
+  end
 
 
 
