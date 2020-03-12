@@ -79,7 +79,7 @@
         <div class="tile is-ancestor has-text-centered">
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title">0</p>
+              <p class="title"><%= @users.count %></p>
               <p class="subtitle">Employees</p>
             </article>
           </div>
@@ -89,34 +89,36 @@
 
       <div class="table-container">
         <section class="info-tiles">
-<!--          <table class="table is-bordered is-striped is-fullwidth is-hoverable">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--              <th>Name</th>-->
-<!--              <th>Section</th>-->
-<!--              <th>Description</th>-->
+          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+            <thead>
+            <tr>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Table number</th>
 <!--              <th>Allergens</th>-->
 <!--              <th>Calories</th>-->
 <!--              <th>Price</th>-->
 <!--              <th>Shown on menu</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
+            </tr>
+            </thead>
 
-            <%# @foods.each do |food| %>
-<!--              <tr>-->
-<!--                <td><%#= food.name %></td>-->
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.email %></td>
+                <td><%= user.encrypted_password %></td>
+                <td><%= user.table_id %></td>
 <!--                <td><%#= food.section.name %></td>-->
 <!--                <td><%#= food.description %></td>-->
 <!--                <td><%#= food.allergens %></td>-->
 <!--                <td><%#= food.calories %></td>-->
 <!--                <td><%#= food.price %></td>-->
 <!--                <td><%#= food.active %></td>-->
-<!--                <td><%#= link_to 'Show', dashboard_food_path(food) %></td>-->
+<!--                <td><%#= link_to 'Show', dashboard_user_path(user) %></td>-->
 <!--                <td><%#= link_to 'Edit', edit_dashboard_food_path(food) %></td>-->
 <!--                <td><%#= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-<!--              </tr>-->
-            <%# end %>
-<!--          </table>-->
+              </tr>
+            <% end %>
+          </table>
         </section>
       </div>
 
