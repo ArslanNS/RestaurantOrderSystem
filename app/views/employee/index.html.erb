@@ -102,7 +102,7 @@
               <tr>
                 <td><%= user.email %></td>
                 <td><%= user.encrypted_password %></td>
-                <td><%= user.roles %></td>
+                <td><%= user.roles.ids %></td>
 <!--                <td><%#= link_to 'Show', dashboard_user_path(user) %></td>-->
 <!--                <td><%#= link_to 'Edit', edit_dashboard_food_path(food) %></td>-->
 <!--                <td><%#= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
@@ -114,7 +114,7 @@
 
       <br>
       <% if has_role?(:admin)%>
-      <%= link_to 'New employee', new_dashboard_food_path %>
+      <%= link_to 'New employee', new_user_registration_path %>
       <% end %>
     </div>
   </div>
