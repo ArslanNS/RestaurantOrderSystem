@@ -9,4 +9,11 @@ class DashboardController < ApplicationController
     @orders = Order.all
     @status = @orders.status
   end
+
+  private
+
+  def call_params
+    params.require(:call).permit(:table_id)
+  end
+
 end
