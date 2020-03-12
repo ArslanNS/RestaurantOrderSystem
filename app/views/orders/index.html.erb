@@ -56,7 +56,9 @@
         <% end %>
       </tboady>
     </table>
-      <%= link_to "Pay Now", add_payment_method_path, remote: true, class: "button" %>
+    <%= form_tag create_payment_method_path, id: "billing-create-payment-method" do  %>
+      <%= link_to "Pay now", add_payment_method_path, remote: true, class: "button" %>
+    <% end %>
     </div>
   </div>
 </div>
