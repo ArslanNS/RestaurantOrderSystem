@@ -94,11 +94,7 @@
             <tr>
               <th>Email</th>
               <th>Password</th>
-              <th>Table number</th>
-<!--              <th>Allergens</th>-->
-<!--              <th>Calories</th>-->
-<!--              <th>Price</th>-->
-<!--              <th>Shown on menu</th>-->
+              <th>Role</th>
             </tr>
             </thead>
 
@@ -106,13 +102,7 @@
               <tr>
                 <td><%= user.email %></td>
                 <td><%= user.encrypted_password %></td>
-                <td><%= user.table_id %></td>
-<!--                <td><%#= food.section.name %></td>-->
-<!--                <td><%#= food.description %></td>-->
-<!--                <td><%#= food.allergens %></td>-->
-<!--                <td><%#= food.calories %></td>-->
-<!--                <td><%#= food.price %></td>-->
-<!--                <td><%#= food.active %></td>-->
+                <td><%= user.roles %></td>
 <!--                <td><%#= link_to 'Show', dashboard_user_path(user) %></td>-->
 <!--                <td><%#= link_to 'Edit', edit_dashboard_food_path(food) %></td>-->
 <!--                <td><%#= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
@@ -123,7 +113,9 @@
       </div>
 
       <br>
+      <% if has_role?(:admin)%>
       <%= link_to 'New employee', new_dashboard_food_path %>
+      <% end %>
     </div>
   </div>
 </div>

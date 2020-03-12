@@ -13,6 +13,7 @@ table_2 = Table.create(name: "Table 2", number: 2)
 table_3 = Table.create(name: "Table 3", number: 3)
 
 # Create Users
+user_admin_1 = User.create(email: "admin1@gmail.com", password: "password")
 user_table_1 = User.create(email: "table1@gmail.com", password: "password", table: table_1)
 user_table_2 = User.create(email: "table2@gmail.com", password: "password", table: table_2)
 user_table_3 = User.create(email: "table3@gmail.com", password: "password", table: table_3)
