@@ -133,7 +133,7 @@
               <td><%= order.requests %></td>
               <td>
                 <span class="tag is-link"><%= order.status.name.camelcase %></span>
-                <%= button_to 'Update Status', method: :post %>
+                <%= button_to 'Update Status', dashboard_path(@orders), method: :post %>
               </td>
               <td><%= order.created_at.strftime("%H:%M:%S %d %h %Y") %></td>
             </tr>
