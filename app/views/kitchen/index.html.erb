@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kitchen dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <!-- Bulma Version 0.8.x-->
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/admin.css">
+
+  <style>
+    :target{
+      display: block !important;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- START NAV -->
+<nav class="navbar is-white">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item brand-text" href="/">Oaxaca Mexican Food</a>
+      <div class="navbar-burger burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start">
+    </div>
+  </div>
+  </div>
+</nav>
+<!-- END NAV -->
+<div class="container">
+  <div class="columns">
+    <div class="column is-3 ">
+      <aside class="menu is-hidden-mobile">
+        <p class="menu-label">
+          General
+        </p>
+        <ul class="menu-list">
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><%= link_to 'Menu', dashboard_foods_path %></li>
+          <li><a class="is-active">Kitchen</a></li>
+        </ul>
+        <p class="menu-label">
+          Administration
+        </p>
+        <ul class="menu-list">
+          <li><a href="/dashboard/employee">Employee Management</a></li>
+        </ul>
+        <p class="menu-label">
+          Transactions
+        </p>
+        <ul class="menu-list">
+          <li><a>Payments</a></li>
+          <li><a>Transfers</a></li>
+          <li><a>Balance</a></li>
+          <li><a>Reports</a></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="column is-9">
+      <section class="hero is-info welcome is-small">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Kitchen Administration.
+            </h1>
+            <h2 class="subtitle">
+              Keep track of orders sent to the kitchen
+            </h2>
+          </div>
+        </div>
+      </section>
+      <section class="info-tiles">
+        <div class="tile is-ancestor has-text-centered">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"><% @orders.count %></p>
+              <p class="subtitle">Orders</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <div class="table-container">
+        <section class="info-tiles">
+          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+            <thead>
+              <tr>
+                <th>Table</th>
+                <th>Confirmed</th>
+                <th>Cooking</th>
+                <th>Ready to go</th>
+              </tr>
+            </thead>
+            <tbody>
+            <%@tables.each do |table| %>
+              <%@orders = table.orders %>
+              <%@orders.each do |order| %>
+                <%next if order.status.name == "served" %>
+                <%next if order.status.name == "cancelled" %>
+                <tr>
+                  <%= form_with model: order, url: '/dashboard/kitchen/'+order.id.to_s, id: "move-order-"+order.id.to_s do |f| %>
+                    <%= f.hidden_field :id, value: order.id %>
+                  <% end %>
+                  <td><%= order.table.name %></td>
+                  <td>
+                    <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "confirmed"; order.food.name end%></a>
+                    <div id="collapse<%= if order.status.name == "confirmed"; order.id.to_s end%>" style="display:none">
+                      <h4>Notes: <%= order.requests %></h4>
+                      <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
+                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
+                    </div>
+                  </td>
+                  <td>
+                    <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "cooking"; order.food.name end%></a>
+                    <div id="collapse<%= if order.status.name == "cooking"; order.id.to_s end %>" style="display:none">
+                      <h4>Notes: <%= order.requests %></h4>
+                      <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
+                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
+                    </div>
+                  </td>
+                  <td>
+                    <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "ready"; order.food.name end%></a>
+                    <div id="collapse<%= if order.status.name == "ready"; order.id.to_s end %>" style="display:none">
+                      <h4>Notes: <%= order.requests %></h4>
+                      <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
+                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+</html>

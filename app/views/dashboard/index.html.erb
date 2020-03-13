@@ -11,7 +11,8 @@
   <!-- Bulma Version 0.8.x-->
   <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="../css/admin.css">
-  <meta http-equiv="refresh" content="5">
+  <!-- Page refresh every 5 secs -->
+<!--  <meta http-equiv="refresh" content="5">-->
 </head>
 
 <body>
@@ -44,25 +45,13 @@
         <ul class="menu-list">
           <li><a class="is-active">Dashboard</a></li>
           <li><%= link_to 'Menu', dashboard_foods_path %></li>
+          <li><a href="/dashboard/kitchen">Kitchen</a></li>
         </ul>
         <p class="menu-label">
           Administration
         </p>
         <ul class="menu-list">
-          <li><a>Team Settings</a></li>
-          <li>
-            <a>Manage Your Team</a>
-            <ul>
-              <li><a>Employees</a></li>
-              <li><a>Add an employee</a></li>
-              <li><a>Manage an employee</a></li>
-              <li><a>Remove an employee</a></li>
-            </ul>
-          </li>
-<!--          <li><a>Invitations</a></li>-->
-<!--          <li><a>Cloud Storage Environment Settings</a></li>-->
-<!--          <li><a>Authentication</a></li>-->
-<!--          <li><a>Payments</a></li>-->
+          <li><a href="/dashboard/employee">Employee Management</a></li>
         </ul>
         <p class="menu-label">
           Transactions
@@ -120,17 +109,30 @@
               <th>Table</th>
               <th>Time Requested</th>
               <th>Attended</th>
-              <th>Acknowledge</th>
+              <th>Acknowledge Call</th>
             </tr>
             </thead>
             <% @calls.each do |call| %>
+              <%= form_with model: call, url: '/dashboard/'+call.id.to_s, id: "ack-call-"+call.id.to_s do |f| %>
+                <%= f.hidden_field :id, value: call.id %>
+              <% end %>
               <tr>
                 <td><%= call.table.number %></td>
                 <td><%= call.created_at %></td>
-                <td><%= call.attended %></td>
-                <td><button class="button" style="cursor: pointer">
-                  Acknowledge
-                </button></td>
+                <td>
+                  <% if call.attended %>
+                    Yes
+                  <% else %>
+                    No
+                  <% end %>
+                </td>
+                <td>
+                  <% if call.attended %>
+                    <button class="button" style="cursor: pointer" disabled>Acknowledge</button>
+                  <% else %>
+                    <button class="button" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">Acknowledge</button>
+                  <% end %>
+                </td>
               </tr>
             <% end %>
           </table>
