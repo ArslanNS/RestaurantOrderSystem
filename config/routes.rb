@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     resources :foods, controller: '/foods'
     resources :kitchen, controller: '/kitchen'
+    resources :employee, controller: '/employee'
   end
 
   get '/card/new' => 'billing#new_card', as: :add_payment_method, xhr:true

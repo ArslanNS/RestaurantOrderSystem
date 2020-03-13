@@ -55,20 +55,7 @@
           Administration
         </p>
         <ul class="menu-list">
-          <li><a>Team Settings</a></li>
-          <li>
-            <a>Manage Your Team</a>
-            <ul>
-              <li><a>Employees</a></li>
-              <li><a>Add an employee</a></li>
-              <li><a>Manage an employee</a></li>
-              <li><a>Remove an employee</a></li>
-            </ul>
-          </li>
-<!--          <li><a>Invitations</a></li>-->
-<!--          <li><a>Cloud Storage Environment Settings</a></li>-->
-<!--          <li><a>Authentication</a></li>-->
-<!--          <li><a>Payments</a></li>-->
+          <li><a href="/dashboard/employee">Employee Management</a></li>
         </ul>
         <p class="menu-label">
           Transactions
@@ -94,7 +81,16 @@
           </div>
         </div>
       </section>
-
+      <section class="info-tiles">
+        <div class="tile is-ancestor has-text-centered">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"><% @orders.count %></p>
+              <p class="subtitle">Orders</p>
+            </article>
+          </div>
+        </div>
+      </section>
       <div class="table-container">
         <section class="info-tiles">
           <table class="table is-bordered is-striped is-fullwidth is-hoverable">
@@ -122,7 +118,7 @@
                     <div id="collapse<%= if order.status.name == "confirmed"; order.id.to_s end%>" style="display:none">
                       <h4>Notes: <%= order.requests %></h4>
                       <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
-                      <button class="button" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order -></button>
+                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
                     </div>
                   </td>
                   <td>
@@ -130,7 +126,7 @@
                     <div id="collapse<%= if order.status.name == "cooking"; order.id.to_s end %>" style="display:none">
                       <h4>Notes: <%= order.requests %></h4>
                       <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
-                      <button class="button" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order -></button>
+                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
                     </div>
                   </td>
                   <td>
@@ -138,14 +134,13 @@
                     <div id="collapse<%= if order.status.name == "ready"; order.id.to_s end %>" style="display:none">
                       <h4>Notes: <%= order.requests %></h4>
                       <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
-                      <button class="button" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order -></button>
+                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
                     </div>
                   </td>
                 </tr>
               <% end %>
             <% end %>
             </tbody>
-
           </table>
         </section>
       </div>
