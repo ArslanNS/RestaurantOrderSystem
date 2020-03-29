@@ -30,6 +30,15 @@
       <div class="navbar-start">
       </div>
     </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger") %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </nav>
 <!-- END NAV -->
@@ -103,9 +112,11 @@
                 <td><%= user.email %></td>
                 <td><%= user.encrypted_password %></td>
                 <td><%= user.roles.ids %></td>
-<!--                <td><%#= link_to 'Show', dashboard_user_path(user) %></td>-->
-<!--                <td><%#= link_to 'Edit', edit_dashboard_food_path(food) %></td>-->
-<!--                <td><%#= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+                <% if has_role?(:admin)%>
+                  <td><%= link_to 'Show', dashboard_employee_path(user) %></td>
+                  <td><%= link_to 'Edit', edit_dashboard_employee_path(user) %></td>
+                  <td><%= link_to 'Destroy', dashboard_employee_url(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
               </tr>
             <% end %>
           </table>
