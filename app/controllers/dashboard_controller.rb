@@ -15,13 +15,9 @@ class DashboardController < ApplicationController
 
 
 
-  def confirm(ordersss)
-    orderid = ordersss
-    orderid.to_i
-    currentorder = Order.find(orderid)
-    currentorder.status_id = 1
-    currentorder.save
-
+  def confirm(order)
+    if Order.update(order,:status_id => 2)
+    end
   end
 
   helper_method :confirm

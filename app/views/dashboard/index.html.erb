@@ -159,10 +159,11 @@
                 <td><%= order.table.name %></td>
                 <td><%= order.food.name %></td>
                 <td><%= order.requests %></td>
-                <td><span class="tag is-link"><%= order.status.name %></span> <%=link_to("Confirm", :onclick => confirm(order.id)) %></td>
+                <td><span class="tag is-link"></span> <%= order.status.name %> <%=link_to("Confirm", :onclick => confirm(order.id)) %></td>
                 <td><%= order.created_at %></td>
               </tr>
             <% end %>
+
             </tbody>
           </table>
         </section>
