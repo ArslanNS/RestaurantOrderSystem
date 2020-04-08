@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'index/index'
   get 'orders/index'
   devise_for :users
 
-  root 'welcome#index'
+  root 'landing#landing'
 
+  resources :landing, only: [:landing]
+  resources :welcome, only: [:index]
   resources :menu, only: [:index, :create, :update]
   resources :orders, only: [:index, :create, :destroy]
 
