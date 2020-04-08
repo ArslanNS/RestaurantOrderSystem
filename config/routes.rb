@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'index/index'
   get 'orders/index'
   devise_for :users
 
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
     resources :foods, controller: '/foods'
     resources :kitchen, controller: '/kitchen'
     resources :employee, controller: '/employee'
+    resources :manager, controller: '/manager'
   end
 
   get '/card/new' => 'billing#new_card', as: :add_payment_method, xhr:true
