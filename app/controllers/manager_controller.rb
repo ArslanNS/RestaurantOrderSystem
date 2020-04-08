@@ -12,4 +12,17 @@ class ManagerController < ApplicationController
   # GET /foods/1.json
   def show
   end
+
+  def update
+    @call = Call.find(params[:id])
+
+    if @call.update(attended: true)
+      redirect_to dashboard_index_path
+    end
+  end
+
+  private
+  def call_params
+    params.require(:call).permit(:id)
+  end
 end

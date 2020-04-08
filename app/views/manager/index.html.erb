@@ -1,2 +1,177 @@
-<h1>Manager#manager</h1>
-<p>Find me in app/views/manager/manager.html.erb</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <!-- Bulma Version 0.8.x-->
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/admin.css">
+  <!-- Page refresh every 5 secs -->
+  <!--  <meta http-equiv="refresh" content="5">-->
+</head>
+
+<body>
+
+<!-- START NAV -->
+<nav class="navbar is-white">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item brand-text" href="/">Oaxaca Mexican Food</a>
+      <div class="navbar-burger burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start">
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- END NAV -->
+<div class="container">
+  <div class="columns">
+    <div class="column is-3 ">
+      <aside class="menu is-hidden-mobile">
+        <p class="menu-label">
+          General
+        </p>
+        <ul class="menu-list">
+          <li><a class="is-active">Dashboard</a></li>
+          <li><%= link_to 'Menu', dashboard_foods_path %></li>
+          <li><a href="/dashboard/kitchen">Kitchen</a></li>
+        </ul>
+        <p class="menu-label">
+          Administration
+        </p>
+        <ul class="menu-list">
+          <li><a href="/dashboard/employee">Employee Management</a></li>
+        </ul>
+        <p class="menu-label">
+          Transactions
+        </p>
+        <ul class="menu-list">
+          <li><a>Payments</a></li>
+          <li><a>Transfers</a></li>
+          <li><a>Balance</a></li>
+          <li><a>Reports</a></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="column is-9">
+      <section class="hero is-info welcome is-small">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Hello, <%= current_user.email %>.
+            </h1>
+            <h2 class="subtitle">
+              Oaxaca employee (Admin)
+            </h2>
+          </div>
+        </div>
+      </section>
+      <section class="info-tiles">
+        <div class="tile is-ancestor has-text-centered">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title has-text-danger">3</p>
+              <p class="subtitle has-text-danger">Pending issues</p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title has-text-success">17</p>
+              <p class="subtitle has-text-success">Completed issues</p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title">12</p>
+              <p class="subtitle">Employees active</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <p id="notice"><%= notice %></p>
+      <div class="table-container">
+        <section class="info-tiles">
+          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+            <h1 class="subtitle is-5">Calls:</h1>
+            <thead>
+            <tr>
+              <th>Table</th>
+              <th>Time Requested</th>
+              <th>Attended</th>
+              <th>Acknowledge Call</th>
+            </tr>
+            </thead>
+            <% @calls.each do |call| %>
+              <%= form_with model: call, url: '/dashboard/'+call.id.to_s, id: "ack-call-"+call.id.to_s do |f| %>
+                <%= f.hidden_field :id, value: call.id %>
+              <% end %>
+              <tr>
+                <td><%= call.table.number %></td>
+                <td><%= call.created_at %></td>
+                <td>
+                  <% if call.attended %>
+                    Yes
+                  <% else %>
+                    No
+                  <% end %>
+                </td>
+                <td>
+                  <% if call.attended %>
+                    <button class="button" style="cursor: pointer" disabled>Acknowledge</button>
+                  <% else %>
+                    <button class="button" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">Acknowledge</button>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </section>
+      </div>
+
+      <div class="table-container">
+        <section class="info-tiles">
+          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+            <h1 class="subtitle is-5">Current Orders:</h1>
+            <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Table number</th>
+              <th>Order</th>
+              <th>Requests</th>
+              <th>Status</th>
+              <th>Date and Time</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%@orders.each do |order| %>
+              <tr>
+                <td><%= order.id %></td>
+                <td><%= order.table.name %></td>
+                <td><%= order.food.name %></td>
+                <td><%= order.requests %></td>
+                <td><span class="tag is-link"><%= order.status.name %></span></td>
+                <td><%= order.created_at %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+</html>
