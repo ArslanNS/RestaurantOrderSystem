@@ -12,6 +12,12 @@ table_1 = Table.create(name: "Table 1", number: 1)
 table_2 = Table.create(name: "Table 2", number: 2)
 table_3 = Table.create(name: "Table 3", number: 3)
 
+# Create Bills
+bill_0 = Bill.create(table: table_0, total_price: 0, paid: false)
+bill_1 = Bill.create(table: table_1, total_price: 0, paid: false)
+bill_2 = Bill.create(table: table_2, total_price: 0, paid: false)
+bill_3 = Bill.create(table: table_3, total_price: 0, paid: false)
+
 # Create Users
 user_table_1 = User.create(email: "table1@gmail.com", password: "password", table: table_1)
 user_table_2 = User.create(email: "table2@gmail.com", password: "password", table: table_2)
