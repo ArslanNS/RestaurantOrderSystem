@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_094606) do
+ActiveRecord::Schema.define(version: 2020_04_08_101231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_094606) do
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bill_id"
+    t.index ["bill_id"], name: "index_orders_on_bill_id"
     t.index ["food_id"], name: "index_orders_on_food_id"
     t.index ["status_id"], name: "index_orders_on_status_id"
     t.index ["table_id"], name: "index_orders_on_table_id"
@@ -119,6 +121,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_094606) do
   add_foreign_key "bills", "tables"
   add_foreign_key "calls", "tables"
   add_foreign_key "foods", "sections"
+  add_foreign_key "orders", "bills"
   add_foreign_key "orders", "foods"
   add_foreign_key "orders", "statuses"
   add_foreign_key "orders", "tables"
