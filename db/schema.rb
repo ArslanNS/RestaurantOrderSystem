@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_093059) do
+ActiveRecord::Schema.define(version: 2020_04_09_104826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_093059) do
   create_table "calls", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "attended"
+    t.boolean "attended", default: false
     t.bigint "table_id", null: false
     t.index ["table_id"], name: "index_calls_on_table_id"
   end
