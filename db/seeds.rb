@@ -18,6 +18,12 @@ bill_1 = Bill.create(table: table_1, total_price: 0, paid: false)
 bill_2 = Bill.create(table: table_2, total_price: 0, paid: false)
 bill_3 = Bill.create(table: table_3, total_price: 0, paid: false)
 
+# Add Bill to Table
+table_0.update(current_bill_id: bill_0.id)
+table_1.update(current_bill_id: bill_1.id)
+table_2.update(current_bill_id: bill_2.id)
+table_3.update(current_bill_id: bill_3.id)
+
 # Create Users
 user_table_1 = User.create(email: "table1@gmail.com", password: "password", table: table_1)
 user_table_2 = User.create(email: "table2@gmail.com", password: "password", table: table_2)

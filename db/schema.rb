@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 2020_04_09_093059) do
     t.integer "number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "bill_id"
-    t.index ["bill_id"], name: "index_tables_on_bill_id"
+    t.bigint "current_bill_id"
+    t.index ["current_bill_id"], name: "index_tables_on_current_bill_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -127,6 +127,6 @@ ActiveRecord::Schema.define(version: 2020_04_09_093059) do
   add_foreign_key "orders", "foods"
   add_foreign_key "orders", "statuses"
   add_foreign_key "orders", "tables"
-  add_foreign_key "tables", "bills"
+  add_foreign_key "tables", "bills", column: "current_bill_id"
   add_foreign_key "users", "tables"
 end
