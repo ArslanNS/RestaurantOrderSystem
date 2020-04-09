@@ -90,19 +90,25 @@
         <div class="tile is-ancestor has-text-centered">
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title has-text-danger">3</p>
-              <p class="subtitle has-text-danger">Pending issues</p>
+              <p class="title has-text-danger"><%= @calls.count %></p>
+              <p class="subtitle has-text-danger">Calls</p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title has-text-danger"><%= @orders.count %></p>
+              <p class="subtitle has-text-danger">Pending orders</p>
             </article>
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
               <p class="title has-text-success">17</p>
-              <p class="subtitle has-text-success">Completed issues</p>
+              <p class="subtitle has-text-success">Completed orders</p>
             </article>
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title">12</p>
+              <p class="title"><%= @users.count %></p>
               <p class="subtitle">Employees active</p>
             </article>
           </div>
