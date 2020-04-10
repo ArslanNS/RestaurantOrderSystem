@@ -213,5 +213,5 @@ status_served = Status.create(name: "served")
 status_cancelled = Status.create(name: "cancelled")
 
 # Create Orders
-order_1 = Order.create(table: table_1, food: food_1, requests: "No corn please", status: status_cooking)
-order_2 = Order.create(table: table_1, food: food_14, requests: "Less ice", status: status_served)
+order_1 = Order.create(table: table_1, food: food_1, requests: "No corn please", status: status_cooking, bill_id: table_1.current_bill_id)
+order_2 = Order.create(table: table_1, food: food_14, requests: "Less ice", status: status_served, bill_id: table_1.current_bill_id)

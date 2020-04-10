@@ -75,6 +75,7 @@
                 </div>
                 <footer class="card-footer">
                   <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                    <%= f.hidden_field :current_bill_id, value: @current_bill.id %>
                     <%= f.hidden_field :table_id, value: current_user.table.id %>
                     <%= f.hidden_field :food_id, value: food.id %>
                     <%= f.hidden_field :requests, value: "" %>
@@ -126,6 +127,7 @@
                 </div>
                 <footer class="card-footer">
                   <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                    <%= f.hidden_field :current_bill_id, value: @current_bill.id %>
                     <%= f.hidden_field :table_id, value: current_user.table.id %>
                     <%= f.hidden_field :food_id, value: food.id %>
                     <%= f.hidden_field :requests, value: "" %>
@@ -179,6 +181,7 @@
                 </div>
                 <footer class="card-footer">
                   <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                    <%= f.hidden_field :current_bill_id, value: @current_bill.id %>
                     <%= f.hidden_field :table_id, value: current_user.table.id %>
                     <%= f.hidden_field :food_id, value: food.id %>
                     <%= f.hidden_field :requests, value: "" %>
@@ -231,6 +234,7 @@
                     </div>
                     <footer class="card-footer">
                       <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                        <%= f.hidden_field :current_bill_id, value: @current_bill.id %>
                         <%= f.hidden_field :table_id, value: current_user.table.id %>
                         <%= f.hidden_field :food_id, value: food.id %>
                         <%= f.hidden_field :requests, value: "" %>
@@ -284,6 +288,7 @@
                       </div>
                       <footer class="card-footer">
                         <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
+                          <%= f.hidden_field :current_bill_id, value: @current_bill.id %>
                           <%= f.hidden_field :table_id, value: current_user.table.id %>
                           <%= f.hidden_field :food_id, value: food.id %>
                           <%= f.hidden_field :requests, value: "" %>
