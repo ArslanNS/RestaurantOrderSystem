@@ -18,6 +18,11 @@ class OrdersController < ApplicationController
 
     @order.save
 
+    # Update total price in bill
+    @current_bill = Bill.find(current_bill_id)
+    @current_bill.total_price += @order.food.price
+    @current_bill.save
+
     redirect_to menu_index_path
   end
 
@@ -26,6 +31,12 @@ class OrdersController < ApplicationController
 
     # Set order status to CANCELLED
     @order.update(status_id: 5)
+
+    # Remove price from total bill
+    current_bill_id = @order.table.current_bill_id
+    @current_bill = Bill.find(current_bill_id)
+    @current_bill.total_price -= @order.food.price
+    @current_bill.save
 
     redirect_to orders_index_path
   end

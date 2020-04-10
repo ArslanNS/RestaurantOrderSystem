@@ -215,3 +215,9 @@ status_cancelled = Status.create(name: "cancelled")
 # Create Orders
 order_1 = Order.create(table: table_1, food: food_1, requests: "No corn please", status: status_cooking, bill_id: table_1.current_bill_id)
 order_2 = Order.create(table: table_1, food: food_14, requests: "Less ice", status: status_served, bill_id: table_1.current_bill_id)
+
+# Update prices in bill (for order_1 and order_2)
+table_1_current_bill = Bill.find(table_1.current_bill_id)
+table_1_current_bill.total_price += order_1.food.price
+table_1_current_bill.total_price += order_2.food.price
+table_1_current_bill.save
