@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
     current_table = current_user.table
     current_bill_id = current_table.current_bill_id
 
-    @current_bill = Bill.where(id: current_bill_id)
+    @current_bill = Bill.where(id: current_bill_id).first
 
     @orders = Order.where(table: current_table, bill_id: current_bill_id)
 
