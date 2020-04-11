@@ -25,6 +25,7 @@ table_2.update(current_bill_id: bill_2.id)
 table_3.update(current_bill_id: bill_3.id)
 
 # Create Users
+user_admin_1 = User.create(email: "admin1@gmail.com", password: "password")
 user_table_1 = User.create(email: "table1@gmail.com", password: "password", table: table_1)
 user_table_2 = User.create(email: "table2@gmail.com", password: "password", table: table_2)
 user_table_3 = User.create(email: "table3@gmail.com", password: "password", table: table_3)
@@ -36,6 +37,7 @@ user_kitchen_2 = User.create(email: "kitchen2@gmail.com", password: "password")
 user_kitchen_3 = User.create(email: "kitchen3@gmail.com", password: "password")
 
 # Add Roles to Users
+user_admin_1.add_role :admin
 user_table_1.add_role :table
 user_table_2.add_role :table
 user_table_3.add_role :table
