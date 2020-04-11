@@ -47,12 +47,14 @@
           <li><%= link_to 'Menu', dashboard_foods_path %></li>
           <li><a href="/dashboard/kitchen">Kitchen</a></li>
         </ul>
-        <p class="menu-label">
-          Administration
-        </p>
-        <ul class="menu-list">
-          <li><a href="/dashboard/employee">Employee Management</a></li>
-        </ul>
+        <% if current_user.email == "admin1@gmail.com" %>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li><a href="/dashboard/employee">Employee Management</a></li>
+          </ul>
+        <% end %>
         <p class="menu-label">
           Transactions
         </p>
