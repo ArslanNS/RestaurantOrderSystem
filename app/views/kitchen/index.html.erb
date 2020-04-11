@@ -95,24 +95,25 @@
               </tr>
             </thead>
             <tbody>
-            <%@tables.each do |table| %>
+            <%@tables.each do |table| %>      <!--For each table-->
               <%@orders = table.orders %>
-              <%@orders.each do |order| %>
-                <%next if order.status.name == "served" %>
-                <%next if order.status.name == "cancelled" %>
+              <%@orders.each do |order| %>    <!--For each table's orders-->
+                <%next if order.status.name == "served" %>    <!--Ignore if it has been served-->
+                <%next if order.status.name == "cancelled" %> <!--Ignore if it has been cancelled-->
                 <tr>
-                  <%= form_with model: order, url: '/dashboard/kitchen/'+order.id.to_s, id: "move-order-"+order.id.to_s do |f| %>
+                  <%= form_with model: order, url: '/dashboard/kitchen/'+order.id.to_s, id: "move-order-"+order.id.to_s do |f| %>   <!--Define a form to advance order status-->
                     <%= f.hidden_field :id, value: order.id %>
                   <% end %>
                   <td><%= order.table.name %></td>
                   <td>
-                    <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "confirmed"; order.food.name end%></a>
-                    <div id="collapse<%= if order.status.name == "confirmed"; order.id.to_s end%>" style="display:none">
+                    <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "confirmed"; order.food.name end%></a>      <!--Create link which expands following div-->
+                    <div id="collapse<%= if order.status.name == "confirmed"; order.id.to_s end%>" style="display:none">      <!--Create collapsible div with additional order info-->
                       <h4>Notes: <%= order.requests %></h4>
                       <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
-                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
+                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>    <!--Create button to progress order-->
                     </div>
                   </td>
+                  <!--Repeats above for 'cooking' orders-->
                   <td>
                     <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "cooking"; order.food.name end%></a>
                     <div id="collapse<%= if order.status.name == "cooking"; order.id.to_s end %>" style="display:none">
@@ -121,6 +122,7 @@
                       <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
                     </div>
                   </td>
+                  <!--Repeats above for 'ready' orders-->
                   <td>
                     <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "ready"; order.food.name end%></a>
                     <div id="collapse<%= if order.status.name == "ready"; order.id.to_s end %>" style="display:none">
