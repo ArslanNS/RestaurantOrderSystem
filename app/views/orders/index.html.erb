@@ -43,6 +43,7 @@
         <tr>
           <th>Food Name</th>
           <th>Special Requests</th>
+          <th>Price (£)</th>
           <th>Status</th>
           <th>Modify Order</th>
         </tr>
@@ -52,6 +53,7 @@
           <tr>
             <td><%= order.food.name %></td>
             <td><%= order.requests.camelcase %></td>
+            <td><%= order.food.price %></td>
             <td><%= order.status.name.camelcase %></td>
             <td><%= link_to 'Cancel', order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
