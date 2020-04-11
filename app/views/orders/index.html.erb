@@ -36,6 +36,8 @@
 
     <p class="title">All Orders</p>
 
+    <p class="subtitle">Bill No. <%= @current_bill.id %></p>
+
     <table class="table">
       <thead>
         <tr>
@@ -45,7 +47,7 @@
           <th>Modify Order</th>
         </tr>
       </thead>
-      <tboady>
+      <tbody>
         <% @orders.each do |order| %>
           <tr>
             <td><%= order.food.name %></td>
@@ -54,7 +56,7 @@
             <td><%= link_to 'Cancel', order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
-      </tboady>
+      </tbody>
     </table>
     <%= form_tag create_payment_method_path, id: "billing-create-payment-method" do  %>
       <%= link_to "Pay now", add_payment_method_path, remote: true, class: "button" %>

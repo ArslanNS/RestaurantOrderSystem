@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :welcome, only: [:index]
   resources :menu, only: [:index, :create, :update]
   resources :orders, only: [:index, :create, :destroy]
+  resources :bills, only: [:index, :create, :destroy]
 
   resources :dashboard, only: [:index, :update]
   namespace :dashboard do
