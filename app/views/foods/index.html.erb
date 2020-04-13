@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   <!-- Bulma Version 0.8.x-->
-  <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css"/>
   <link rel="stylesheet" type="text/css" href="../css/admin.css">
 </head>
 
@@ -89,34 +89,37 @@
 
       <div class="table-container">
         <section class="info-tiles">
-        <table class="table is-bordered is-striped is-fullwidth is-hoverable">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Section</th>
-            <th>Description</th>
-            <th>Allergens</th>
-            <th>Calories</th>
-            <th>Price</th>
-            <th>Shown on menu</th>
-          </tr>
-          </thead>
-
-          <% @foods.each do |food| %>
+          <table class="table is-striped is-fullwidth is-hoverable">
+            <thead>
             <tr>
-              <td><%= food.name %></td>
-              <td><%= food.section.name %></td>
-              <td><%= food.description %></td>
-              <td><%= food.allergens %></td>
-              <td><%= food.calories %></td>
-              <td><%= food.price %></td>
-              <td><%= food.active %></td>
-              <td><%= link_to 'Show', dashboard_food_path(food) %></td>
-              <td><%= link_to 'Edit', edit_dashboard_food_path(food) %></td>
-              <td><%= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <th>Name</th>
+              <th>Section</th>
+              <th>Description</th>
+              <th>Allergens</th>
+              <th>Calories</th>
+              <th>Price</th>
+              <th>Visibility</th>
             </tr>
-          <% end %>
-        </table>
+            </thead>
+            <% @foods.each do |food| %>
+              <tr>
+                <td><%= food.name %></td>
+                <td><%= food.section.name %></td>
+                <td><%= food.description %></td>
+                <td><%= food.allergens %></td>
+                <td><%= food.calories %></td>
+                <td><%= food.price %></td>
+                <td><%= food.active %></td>
+                <td>
+                  <div class="buttons">
+                    <%= link_to 'Show', dashboard_food_path(food), :class => "button is-link is-small" %>
+                    <%= link_to 'Edit', edit_dashboard_food_path(food), :class => "button is-link is-small" %>
+                    <%= link_to 'Delete', dashboard_food_path(food), method: :delete, data: {confirm: 'Are you sure?'}, :class => "button is-link is-small" %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </table>
         </section>
       </div>
 
