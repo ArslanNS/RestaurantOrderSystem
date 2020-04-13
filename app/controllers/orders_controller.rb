@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
     current_bill_id = current_table.current_bill_id
 
     @current_bill = Bill.where(id: current_bill_id).first
+    @call = Call.new
 
     @orders = Order.where(table: current_table, bill_id: current_bill_id)
 
@@ -41,8 +42,12 @@ class OrdersController < ApplicationController
     redirect_to orders_index_path
   end
 
+
   private
   def order_params
     params.require(:order).permit(:table_id, :food_id, :requests, :status_id)
+  end
+  def call_params
+    params.require(:call).permit(:table_id)
   end
 end
