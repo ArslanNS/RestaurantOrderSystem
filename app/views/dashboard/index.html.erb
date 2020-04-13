@@ -128,9 +128,9 @@
                 </td>
                 <td>
                   <% if call.attended %>
-                    <button class="button" style="cursor: pointer" disabled>Acknowledge</button>
+                    <button class="button is-danger" style="cursor: pointer" disabled>Acknowledge</button>
                   <% else %>
-                    <button class="button" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">Acknowledge</button>
+                    <button class="button is-danger" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">Acknowledge</button>
                   <% end %>
                 </td>
               </tr>
