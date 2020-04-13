@@ -79,6 +79,9 @@
             <article class="tile is-child box">
               <p class="title"><%= @users.count %></p>
               <p class="subtitle">Employees</p>
+              <% if has_role?(:admin)%>
+                <%= link_to 'Add New Employee', new_user_registration_path, :class => "button is-info is-normal" %>
+              <% end %>
             </article>
           </div>
         </div>
@@ -87,7 +90,7 @@
 
       <div class="table-container">
         <section class="info-tiles">
-          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+          <table class="table is-striped is-fullwidth is-hoverable">
             <thead>
             <tr>
               <th>Email</th>
@@ -109,11 +112,6 @@
           </table>
         </section>
       </div>
-
-      <br>
-      <% if has_role?(:admin)%>
-      <%= link_to 'New employee', new_user_registration_path %>
-      <% end %>
     </div>
   </div>
 </div>
