@@ -102,7 +102,7 @@
       <p id="notice"><%= notice %></p>
       <div class="table-container">
         <section class="info-tiles">
-          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+          <table class="table is-striped is-fullwidth is-hoverable">
             <h1 class="subtitle is-5">Calls:</h1>
             <thead>
             <tr>
@@ -141,7 +141,7 @@
 
       <div class="table-container">
         <section class="info-tiles">
-          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+          <table class="table is-striped is-fullwidth is-hoverable">
             <h1 class="subtitle is-5">Current Orders:</h1>
             <thead>
               <tr>
@@ -160,7 +160,7 @@
                 <td><%= order.table.name %></td>
                 <td><%= order.food.name %></td>
                 <td><%= order.requests %></td>
-                <td><span class="tag is-link"><%= order.status.name %></span></td>
+                <td><span class="tag is-info is-medium"><%= order.status.name %></span></td>
                 <td><%= order.created_at %></td>
               </tr>
             <% end %>
