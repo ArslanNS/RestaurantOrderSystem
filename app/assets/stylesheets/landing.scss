@@ -1,14 +1,6 @@
 // Place all the styles related to the landing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.video-background-holder {
-  position: relative;
-  background-color: black;
-  height: calc(100vh);
-  min-height: 25rem;
-  width: 100%;
-  overflow: hidden;
-}
 
 .video-background-holder video {
   position: absolute;
@@ -39,4 +31,12 @@
   background-color: black;
   opacity: 0.5;
   z-index: 1;
+}
+
+.video-background-holder{
+  background-image: url('landing.gif');
+  background-size: cover;
+  height: 100vh;
+  padding:0;
+  margin:0;
 }
