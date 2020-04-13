@@ -46,11 +46,6 @@ ActiveRecord::Schema.define(version: 2020_04_09_104826) do
     t.index ["section_id"], name: "index_foods_on_section_id"
   end
 
-  create_table "managers", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "menus", force: :cascade do |t|
     t.string "name"
     t.string "description"
