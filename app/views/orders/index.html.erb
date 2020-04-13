@@ -3,7 +3,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">Oaxaca Mexican Food</h1>
-      <h2 class="subtitle">Table Ordering System</h2>
+      <h2 class="subtitle">You're Seated at Table: <%= current_user.table.number %></h2>
       <div class="tile is-ancestor">
         <!-- All other tile elements -->
         <div class="tile is-parent">
@@ -14,10 +14,10 @@
         </div>
         <div class="tile is-parent">
           <%= form_with model: @call, url: {action: "create"}, id: "call-waiter" do |f| %>
-            <%= f.hidden_field :table_id, value: 0 %>
+            <%= f.hidden_field :table_id, value: current_user.table.id %>
           <% end %>
           <article class="tile is-child notification is-dark" onclick="document.getElementById('call-waiter').submit();" style="cursor: pointer">
-            <p class="title">Call Waiter</p>
+            <p class="title">Request for Help</p>
           </article>
         </div>
         <div class="tile is-parent">
@@ -31,13 +31,10 @@
 </section>
 
 <!-- Hero content: will be in the middle -->
-<div class="menu-body">
+<div class="hero-body">
   <div class="container">
-
     <p class="title">All Orders</p>
-
     <p class="subtitle">Bill No. <%= @current_bill.id %></p>
-
     <table class="table">
       <thead>
         <tr>
@@ -60,9 +57,7 @@
         <% end %>
       </tbody>
     </table>
-
     <p class="title">Total Price: £ <%= number_with_precision(@current_bill.total_price, precision: 2) %></p>
-
     <%= form_tag create_payment_method_path, id: "billing-create-payment-method" do  %>
       <%= link_to "Pay now", add_payment_method_path, remote: true, class: "button" %>
     <% end %>
