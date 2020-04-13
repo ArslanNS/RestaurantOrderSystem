@@ -1,6 +1,22 @@
-<h1>Editing Food</h1>
-
-<%= render 'form', food: @food %>
-
-<%= link_to 'Show', dashboard_food_path(@food) %> |
-<%= link_to 'Back', dashboard_foods_path %>
+<section class="hero is-small is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1>Editing Food Item Menu</h1>
+    </div>
+  </div>
+</section>
+<div class="hero-body">
+  <div class="container">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-dark">
+          <%= render 'form', food: @food %>
+          <div class="container" style="padding-top: 25px;">
+            <%= link_to 'Show', dashboard_food_path(@food) %> |
+            <%= link_to 'Back', dashboard_foods_path %>>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
