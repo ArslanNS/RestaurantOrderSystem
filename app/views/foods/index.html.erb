@@ -100,6 +100,7 @@
               <th>Calories</th>
               <th>Price</th>
               <th>Visibility</th>
+              <th>Actions</th>
             </tr>
             </thead>
             <% @foods.each do |food| %>
@@ -113,9 +114,9 @@
                 <td><%= food.active %></td>
                 <td>
                   <div class="buttons">
-                    <%= link_to 'Show', dashboard_food_path(food), :class => "button is-link is-small" %>
+                    <%= link_to 'Show', dashboard_food_path(food), :class => "button is-link is-small is-success" %>
                     <%= link_to 'Edit', edit_dashboard_food_path(food), :class => "button is-link is-small" %>
-                    <%= link_to 'Delete', dashboard_food_path(food), method: :delete, data: {confirm: 'Are you sure?'}, :class => "button is-link is-small" %>
+                    <%= link_to 'Delete', dashboard_food_path(food), method: :delete, data: {confirm: 'Are you sure?'}, :class => "button is-link is-small is-danger" %>
                   </div>
                 </td>
               </tr>
