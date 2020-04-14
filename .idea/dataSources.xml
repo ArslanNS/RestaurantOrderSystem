@@ -25,29 +25,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1:5432/TeamProject2020_13_test</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="Rails master: default" uuid="8c52826f-53f8-4884-affb-97fa43a7ab7f">
-      <driver-ref>postgresql</driver-ref>
+    <data-source source="LOCAL" name="development" uuid="01c92097-19da-4ae5-9a78-08cb9339f31d">
+      <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/menu</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="Rails master: development" uuid="3dc5e063-e59d-4fd5-8830-9d712716a18e">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/menu</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="Rails master: test" uuid="fbcf3fb1-f62c-488d-97e5-930dfb19a483">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/menu</jdbc-url>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Kalinco-Desktop\RubymineProjects\TeamProject2020_13\db\development.sqlite3</jdbc-url>
     </data-source>
   </component>
 </project>

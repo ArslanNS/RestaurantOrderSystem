@@ -12,7 +12,20 @@ table_1 = Table.create(name: "Table 1", number: 1)
 table_2 = Table.create(name: "Table 2", number: 2)
 table_3 = Table.create(name: "Table 3", number: 3)
 
+# Create Bills
+bill_0 = Bill.create(table: table_0, total_price: 0, paid: false)
+bill_1 = Bill.create(table: table_1, total_price: 0, paid: false)
+bill_2 = Bill.create(table: table_2, total_price: 0, paid: false)
+bill_3 = Bill.create(table: table_3, total_price: 0, paid: false)
+
+# Add Bill to Table
+table_0.update(current_bill_id: bill_0.id)
+table_1.update(current_bill_id: bill_1.id)
+table_2.update(current_bill_id: bill_2.id)
+table_3.update(current_bill_id: bill_3.id)
+
 # Create Users
+user_admin_1 = User.create(email: "admin1@gmail.com", password: "password")
 user_table_1 = User.create(email: "table1@gmail.com", password: "password", table: table_1)
 user_table_2 = User.create(email: "table2@gmail.com", password: "password", table: table_2)
 user_table_3 = User.create(email: "table3@gmail.com", password: "password", table: table_3)
@@ -24,6 +37,7 @@ user_kitchen_2 = User.create(email: "kitchen2@gmail.com", password: "password")
 user_kitchen_3 = User.create(email: "kitchen3@gmail.com", password: "password")
 
 # Add Roles to Users
+user_admin_1.add_role :admin
 user_table_1.add_role :table
 user_table_2.add_role :table
 user_table_3.add_role :table
@@ -201,5 +215,12 @@ status_served = Status.create(name: "served")
 status_cancelled = Status.create(name: "cancelled")
 
 # Create Orders
-order_1 = Order.create(table: table_1, food: food_1, requests: "No corn please", status: status_cooking)
-order_2 = Order.create(table: table_1, food: food_14, requests: "Less ice", status: status_served)
+order_1 = Order.create(table: table_1, food: food_1, requests: "No corn please", status: status_cooking, bill_id: table_1.current_bill_id)
+order_2 = Order.create(table: table_1, food: food_14, requests: "Less ice", status: status_served, bill_id: table_1.current_bill_id)
+
+# Update prices in bill (for order_1 and order_2)
+table_1_current_bill = Bill.find(table_1.current_bill_id)
+table_1_current_bill.total_price += order_1.food.price
+table_1_current_bill.total_price += order_2.food.price
+table_1_current_bill.save
+table_1_current_bill.save

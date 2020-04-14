@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="refresh" content="5">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <!-- Bulma Version 0.8.x-->
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+
+<body>
+
+<!-- START NAV -->
+<nav class="navbar is-white">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item brand-text" href="/">Oaxaca Mexican Food</a>
+      <div class="navbar-burger burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start">
+      </div>
+    </div>
+  </div>
+  <div class="navbar-end">
+      <div class="navbar-item">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger") %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- END NAV -->
+<div class="container">
+  <div class="columns">
+    <div class="column is-3 ">
+      <aside class="menu is-hidden-mobile">
+        <p class="menu-label">
+          General
+        </p>
+        <ul class="menu-list">
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/dashboard/foods">Menu</a></li>
+          <li><a href="/dashboard/kitchen">Kitchen</a></li>
+        </ul>
+        <p class="menu-label">
+          Administration
+        </p>
+        <ul class="menu-list">
+          <li><a class="is-active">Employee Management</a></li>
+        </ul>
+        <p class="menu-label">
+          Transactions
+        </p>
+        <ul class="menu-list">
+          <li><a>Payments (WIP)</a></li>
+          <li><a>Balance (WIP)</a></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="column is-9">
+      <section class="hero is-info welcome is-small">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Employee management.
+            </h1>
+            <h2 class="subtitle">
+              Add, modify and remove employees from this page.
+            </h2>
+          </div>
+        </div>
+      </section>
+      <section class="info-tiles">
+        <div class="tile is-ancestor has-text-centered">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"><%= @users.count %></p>
+              <p class="subtitle">Employees</p>
+              <!--  If user role admin, allow adding new employee -->
+              <% if has_role?(:admin)%>
+                <%= link_to 'Add New Employee', new_user_registration_path, :class => "button is-info is-normal" %>
+              <% end %>
+            </article>
+          </div>
+        </div>
+      </section>
+      <p id="notice"><%= notice %></p>
+      <div class="table-container">
+        <section class="info-tiles">
+          <table class="table is-striped is-fullwidth is-hoverable">
+            <thead>
+            <tr>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.email %></td>
+                <td><%= user.roles.first.name %></td>
+                <!--  Edit roles, username, password, role etc. -->
+                <td><%= link_to 'Edit', edit_user_registration_path(user), :class => "button is-link is-small" %></td>
+              </tr>
+            <% end %>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+</html>
+

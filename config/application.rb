@@ -1,3 +1,4 @@
+# Bundling pre POST
 require_relative 'boot'
 
 require "rails"

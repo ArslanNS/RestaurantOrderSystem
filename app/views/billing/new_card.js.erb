@@ -1,0 +1,28 @@
+var handler = StripeCheckout.configure({
+    //get a publishable key that we put in editor depending on environment: production or development
+    locale: 'auto',
+    //handle translation
+    name: "Oaxaca Mexican Food",
+    // Shows the current table number on the display from the session.
+    description: "You're Seated at Table: <%= current_user.table.number %>",
+    panelLabel: "Pay bill",
+    allowRememberMe: false,
+    token: function (token) {
+        var form = document.getElementById('billing-create-payment-method');
+        //will create element with this id
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'stripeToken');
+        hiddenInput.setAttribute('value', token.id);
+        //creating an <input type="hidden" name="stripeToken" value="<id>"/>. Links user to card on confirmation screen.
+        form.appendChild(hiddenInput);
+        //adding this input when using form.
+        form.submit();
+    }
+});
+
+handler.open();
+
+window.addEventListener('popstate', function() {
+    handler.close();
+});

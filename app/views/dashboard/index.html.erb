@@ -2,9 +2,9 @@
 <html>
 
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="refresh" content="5">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin dashboard</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,6 +12,7 @@
   <!-- Bulma Version 0.8.x-->
   <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="../css/admin.css">
+  <!-- Page refresh every 5 secs -->
 <!--  <meta http-equiv="refresh" content="5">-->
 </head>
 
@@ -30,8 +31,19 @@
     </div>
     <div id="navMenu" class="navbar-menu">
       <div class="navbar-start">
+      </div>
     </div>
   </div>
+  <div class="navbar-end">
+      <div class="navbar-item">
+        <!--  User sign out buttons -->
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger") %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </nav>
 <!-- END NAV -->
@@ -45,34 +57,23 @@
         <ul class="menu-list">
           <li><a class="is-active">Dashboard</a></li>
           <li><%= link_to 'Menu', dashboard_foods_path %></li>
+          <li><a href="/dashboard/kitchen">Kitchen</a></li>
         </ul>
-        <p class="menu-label">
-          Administration
-        </p>
-        <ul class="menu-list">
-          <li><a>Team Settings</a></li>
-          <li>
-            <a>Manage Your Team</a>
-            <ul>
-              <li><a>Employees</a></li>
-              <li><a>Add an employee</a></li>
-              <li><a>Manage an employee</a></li>
-              <li><a>Remove an employee</a></li>
-            </ul>
-          </li>
-<!--          <li><a>Invitations</a></li>-->
-<!--          <li><a>Cloud Storage Environment Settings</a></li>-->
-<!--          <li><a>Authentication</a></li>-->
-<!--          <li><a>Payments</a></li>-->
-        </ul>
+        <!--  Show fields if particular user signed in -->
+        <% if current_user.email == "admin1@gmail.com" %>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li><a href="/dashboard/employee">Employee Management</a></li>
+          </ul>
+        <% end %>
         <p class="menu-label">
           Transactions
         </p>
         <ul class="menu-list">
-          <li><a>Payments</a></li>
-          <li><a>Transfers</a></li>
-          <li><a>Balance</a></li>
-          <li><a>Reports</a></li>
+          <li><a>Payments (WIP)</a></li>
+          <li><a>Balance (WIP)</a></li>
         </ul>
       </aside>
     </div>
@@ -114,36 +115,51 @@
       <p id="notice"><%= notice %></p>
       <div class="table-container">
         <section class="info-tiles">
-          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+          <table class="table is-striped is-fullwidth is-hoverable">
             <h1 class="subtitle is-5">Calls:</h1>
             <thead>
             <tr>
               <th>Table</th>
               <th>Time Requested</th>
               <th>Attended</th>
-              <th>Acknowledge</th>
+              <th>Acknowledge Call</th>
             </tr>
             </thead>
+            <!--  Call handling -->
             <% @calls.each do |call| %>
+              <%= form_with model: call, url: '/dashboard/'+call.id.to_s, id: "ack-call-"+call.id.to_s do |f| %>
+                <%= f.hidden_field :id, value: call.id %>
+              <% end %>
               <tr>
                 <td><%= call.table.number %></td>
                 <td><%= call.created_at %></td>
-                <td><%= call.attended %></td>
-                <td><%=link_to("Acknowledge", :onclick => @waiternumber = numbering(call.table.number)) %>
+                <td>
+                  <% if call.attended %>
+                    Yes
+                  <% else %>
+                    No
+                  <% end %>
+                </td>
+                <td>
+                  <% if call.attended %>
+                  <!--  Bulma colour formatting -->
+                    <button class="button is-danger" style="cursor: pointer" disabled>Acknowledge</button>
+                  <% else %>
+                    <button class="button is-danger" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">Acknowledge</button>
+                  <% end %>
                 </td>
               </tr>
             <% end %>
-
           </table>
         </section>
       </div>
 
       <div class="table-container">
         <section class="info-tiles">
-          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+          <table class="table is-striped is-fullwidth is-hoverable">
             <h1 class="subtitle is-5">Current Orders:</h1>
-            <h2 class = "subtitle is-5"> You are assigned to table <%= @waiternumber %></h2>
             <thead>
+              <!--  Table containing order information -->
               <tr>
                 <th>Order ID</th>
                 <th>Table number</th>
@@ -157,14 +173,13 @@
             <%@orders.each do |order| %>
               <tr>
                 <td><%= order.id %></td>
-                <td><%= @waiternumber %></td>
+                <td><%= order.table.name %></td>
                 <td><%= order.food.name %></td>
                 <td><%= order.requests %></td>
-                <td><span class="tag is-link"> <%= order.status.name %> </span> <%=link_to("Confirm", :onclick => confirm(order.id)) %></td>
+                <td><span class="tag is-info is-medium"><%= order.status.name %></span></td>
                 <td><%= order.created_at %></td>
               </tr>
             <% end %>
-
             </tbody>
           </table>
         </section>
@@ -174,7 +189,5 @@
   </div>
 </div>
 <script async type="text/javascript" src="../js/bulma.js"></script>
-
-
 </body>
 </html>
