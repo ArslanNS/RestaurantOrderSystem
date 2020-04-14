@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   root 'landing#landing'
 
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
   resources :landing, only: [:landing]
   resources :welcome, only: [:index]
   resources :menu, only: [:index, :create, :update]

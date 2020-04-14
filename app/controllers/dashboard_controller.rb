@@ -7,6 +7,7 @@ class DashboardController < ApplicationController
   def index
     @calls = Call.all
     @orders = Order.all
+    @users = User.all
   end
 
   # GET /foods/1

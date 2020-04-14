@@ -4,6 +4,7 @@ class KitchenController < ApplicationController
   def index
     @orders = Order.all
     @tables = Table.all
+    @orderCount = Order.new
   end
 
   # GET /foods/1
