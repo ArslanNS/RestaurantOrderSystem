@@ -5,7 +5,7 @@ class FoodsController < ApplicationController
 
   # GET /foods
   # GET /foods.json
-  def index
+  def index  #Calls all Food table data and stores in @foods
     @foods = Food.all
   end
 
@@ -15,23 +15,23 @@ class FoodsController < ApplicationController
   end
 
   # GET /foods/new
-  def new
+  def new #Create new food item
     @food = Food.new
     @sections = Section.all
   end
 
   # GET /foods/1/edit
-  def edit
+  def edit #Used in part to change existing food item
     @sections = Section.all
   end
 
   # POST /foods
   # POST /foods.json
-  def create
-    @food = Food.new(food_params)
+  def create  #Create new food item
+    @food = Food.new(food_params) #pass parameters to new to instantiate object
 
     respond_to do |format|
-      if @food.save
+      if @food.save #Procedure for successful food creation
         format.html { redirect_to dashboard_food_path(@food), notice: 'Food was successfully created.' }
         format.json { render :show, status: :created, location: @food }
       else
@@ -43,10 +43,10 @@ class FoodsController < ApplicationController
 
   # PATCH/PUT /foods/1
   # PATCH/PUT /foods/1.json
-  def update
+  def update #Change details of an existing food item
     respond_to do |format|
-      if @food.update(food_params)
-        format.html { redirect_to dashboard_food_path(@food), notice: 'Food was successfully updated.' }
+      if @food.update(food_params) #IF successful update
+        format.html { redirect_to dashboard_food_path(@food), notice: 'Food was successfully updated.' } #confirmation
         format.json { render :show, status: :ok, location: @food }
       else
         format.html { render :edit }
@@ -57,8 +57,8 @@ class FoodsController < ApplicationController
 
   # DELETE /foods/1
   # DELETE /foods/1.json
-  def destroy
-    @food.destroy
+  def destroy 
+    @food.destroy #delete item
     respond_to do |format|
       format.html { redirect_to dashboard_foods_url, notice: 'Food was successfully destroyed.' }
       format.json { head :no_content }
