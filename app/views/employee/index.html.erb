@@ -111,7 +111,7 @@
             <% @users.each do |user| %>
               <tr>
                 <td><%= user.email %></td>
-                <td><%= user.roles.ids %></td>
+                <td><%= user.roles.first.name %></td>
                 <td><%= link_to 'Edit', edit_user_registration_path(user), :class => "button is-link is-small" %></td>
               </tr>
             <% end %>
