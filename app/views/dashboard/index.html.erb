@@ -36,6 +36,7 @@
   </div>
   <div class="navbar-end">
       <div class="navbar-item">
+        <!--  User sign out buttons -->
         <% if user_signed_in? %>
           <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger") %>
         <% else %>
@@ -58,6 +59,7 @@
           <li><%= link_to 'Menu', dashboard_foods_path %></li>
           <li><a href="/dashboard/kitchen">Kitchen</a></li>
         </ul>
+        <!--  Show fields if particular user signed in -->
         <% if current_user.email == "admin1@gmail.com" %>
           <p class="menu-label">
             Administration
@@ -123,6 +125,7 @@
               <th>Acknowledge Call</th>
             </tr>
             </thead>
+            <!--  Call handling -->
             <% @calls.each do |call| %>
               <%= form_with model: call, url: '/dashboard/'+call.id.to_s, id: "ack-call-"+call.id.to_s do |f| %>
                 <%= f.hidden_field :id, value: call.id %>
@@ -139,6 +142,7 @@
                 </td>
                 <td>
                   <% if call.attended %>
+                  <!--  Bulma colour formatting -->
                     <button class="button is-danger" style="cursor: pointer" disabled>Acknowledge</button>
                   <% else %>
                     <button class="button is-danger" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">Acknowledge</button>
@@ -155,6 +159,7 @@
           <table class="table is-striped is-fullwidth is-hoverable">
             <h1 class="subtitle is-5">Current Orders:</h1>
             <thead>
+              <!--  Table containing order information -->
               <tr>
                 <th>Order ID</th>
                 <th>Table number</th>

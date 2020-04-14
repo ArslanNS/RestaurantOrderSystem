@@ -1,3 +1,4 @@
+# Controller to handle all dashboaring actions
 class DashboardController < ApplicationController
   before_action :authenticate_user!
 

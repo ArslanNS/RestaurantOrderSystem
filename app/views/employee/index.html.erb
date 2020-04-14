@@ -90,6 +90,7 @@
             <article class="tile is-child box">
               <p class="title"><%= @users.count %></p>
               <p class="subtitle">Employees</p>
+              <!--  If user role admin, allow adding new employee -->
               <% if has_role?(:admin)%>
                 <%= link_to 'Add New Employee', new_user_registration_path, :class => "button is-info is-normal" %>
               <% end %>
@@ -112,6 +113,7 @@
               <tr>
                 <td><%= user.email %></td>
                 <td><%= user.roles.first.name %></td>
+                <!--  Edit roles, username, password, role etc. -->
                 <td><%= link_to 'Edit', edit_user_registration_path(user), :class => "button is-link is-small" %></td>
               </tr>
             <% end %>

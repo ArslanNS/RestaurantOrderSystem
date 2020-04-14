@@ -1,3 +1,4 @@
+# Handle routing for web app
 Rails.application.routes.draw do
   get 'orders/index'
   devise_for :users
