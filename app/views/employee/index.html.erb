@@ -32,6 +32,16 @@
       </div>
     </div>
   </div>
+  <div class="navbar-end">
+      <div class="navbar-item">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger") %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </nav>
 <!-- END NAV -->
 <div class="container">
@@ -103,7 +113,6 @@
                 <td><%= user.email %></td>
                 <td><%= user.roles.ids %></td>
                 <td><%= link_to 'Edit', edit_user_registration_path(user), :class => "button is-link is-small" %></td>
-                <td><%= link_to "Cancel my account", registration_path(user), data: { confirm: "Are you sure?" }, method: :delete %></td>
               </tr>
             <% end %>
           </table>
