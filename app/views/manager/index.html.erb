@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Refreshes the page to show the new updated content after 5 seconds. -->
   <meta http-equiv="refresh" content="5">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin dashboard</title>
@@ -12,8 +13,6 @@
   <!-- Bulma Version 0.8.x-->
   <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="../css/admin.css">
-  <!-- Page refresh every 5 secs -->
-  <!--  <meta http-equiv="refresh" content="5">-->
 </head>
 
 <body>
@@ -53,6 +52,7 @@
         <p class="menu-label">
           General
         </p>
+        <!-- Links to the alternative routes accessible to the manager. -->
         <ul class="menu-list">
           <li><a class="is-active">Dashboard</a></li>
           <li><%= link_to 'Menu', dashboard_foods_path %></li>
@@ -78,6 +78,7 @@
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
+              <!-- Display of the current user logged in -->
               Hello, <%= current_user.email %>.
             </h1>
             <h2 class="subtitle">
@@ -121,6 +122,7 @@
               <th>Acknowledge Call</th>
             </tr>
             </thead>
+            <!-- For loop used to display the new calls from the users -->
             <% @calls.each do |call| %>
               <%= form_with model: call, url: '/dashboard/'+call.id.to_s, id: "ack-call-"+call.id.to_s do |f| %>
                 <%= f.hidden_field :id, value: call.id %>
@@ -129,6 +131,7 @@
                 <td><%= call.table.number %></td>
                 <td><%= call.created_at %></td>
                 <td>
+                  <!-- Check for if the call has been dealt with or not and returning a text value.-->
                   <% if call.attended %>
                     Yes
                   <% else %>
@@ -136,9 +139,11 @@
                   <% end %>
                 </td>
                 <td>
+                  <!-- Check for the button to be displayed as disabled or not depending on the database state.-->
                   <% if call.attended %>
                     <button class="button" style="cursor: pointer" disabled>Acknowledge</button>
                   <% else %>
+                    <!-- Method call to update the database to have a true boolean variable.-->
                     <button class="button" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">Acknowledge</button>
                   <% end %>
                 </td>
@@ -163,6 +168,7 @@
             </tr>
             </thead>
             <tbody>
+            <!-- For loop to display all the items that are being ordered and the status.-->
             <%@orders.each do |order| %>
               <tr>
                 <td><%= order.id %></td>

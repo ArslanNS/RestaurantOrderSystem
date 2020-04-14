@@ -1,12 +1,14 @@
 <!-- Background video -->
   <div class="video-background-holder">
+    <!-- Background black area is created using the overlay -->
     <div class="video-background-overlay"></div>
-    <!--    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" src=<%#= video_url("landing.mp4") %>>
-    </video>-->
+    <!-- Background content is where the video is held to make it fit the page but not display as the background across other screens. -->
     <div class="video-background-content container h-100">
+      <!-- Text will be centered and aligned in a presentable way -->
       <div class="d-flex h-100 text-center align-items-center">
         <div class="w-100 text-white">
           <h1 class="display-1">Welcome to Oaxaca Mexican Food</h1>
+          <!-- Button to link to the next page. -->
           <button type="button" class="btn btn-outline-light" onclick="location.href='/welcome';">Click Here to Order</button>
           </p>
         </div>

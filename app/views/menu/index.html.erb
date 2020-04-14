@@ -13,6 +13,7 @@
           </article>
         </div>
         <div class="tile is-parent">
+          <!-- Form to call the method that will create a new row in the database for the waiter request. -->
           <%= form_with model: @call, url: {action: "create"}, id: "call-waiter" do |f| %>
             <%= f.hidden_field :table_id, value: current_user.table.id %>
           <% end %>
@@ -48,6 +49,7 @@
     <p class="title">Starters</p>
     <div class="container">
       <div class="columns">
+        <!-- For Loop to fill the display with all the items relating to the starters -->
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name.downcase == "starters") %>
             <div class="column is-one-third">
@@ -77,6 +79,7 @@
                     <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                   </div>
                 </div>
+                <!-- Method call to create an action button that adds items to the orders page and allows for the user to pay -->
                 <footer class="card-footer">
                   <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
                     <%= f.hidden_field :current_bill_id, value: @current_bill.id %>
@@ -102,6 +105,7 @@
     <p class="title">Mains</p>
     <div class="container'">
       <div class="columns">
+        <!-- For Loop to fill the display with all the items relating to the starters -->
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name.downcase == "mains") %>
             <div class="column is-one-third">
@@ -131,6 +135,7 @@
                     <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                   </div>
                 </div>
+                <!-- Method call to create an action button that adds items to the orders page and allows for the user to pay -->
                 <footer class="card-footer">
                   <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
                     <%= f.hidden_field :current_bill_id, value: @current_bill.id %>
@@ -157,7 +162,7 @@
     <p class="title">Sides</p>
     <div class="container'">
       <div class="columns">
-
+        <!-- For Loop to fill the display with all the items relating to the starters -->
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name.downcase == "sides") %>
             <div class="column is-one-third">
@@ -187,6 +192,7 @@
                     <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                   </div>
                 </div>
+                <!-- Method call to create an action button that adds items to the orders page and allows for the user to pay -->
                 <footer class="card-footer">
                   <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
                     <%= f.hidden_field :current_bill_id, value: @current_bill.id %>
@@ -213,6 +219,7 @@
     <p class="title">Desserts</p>
     <div class="container'">
       <div class="columns">
+        <!-- For Loop to fill the display with all the items relating to the starters -->
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name.downcase == "desserts") %>
             <div class="column is-one-third">
@@ -242,6 +249,7 @@
                     <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                   </div>
                 </div>
+                <!-- Method call to create an action button that adds items to the orders page and allows for the user to pay -->
                 <footer class="card-footer">
                   <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
                     <%= f.hidden_field :current_bill_id, value: @current_bill.id %>
@@ -268,7 +276,7 @@
     <p class="title">Drinks</p>
     <div class="container'">
       <div class="columns">
-
+        <!-- For Loop to fill the display with all the items relating to the starters -->
         <% @foods.each do |food| %>
           <% if (food.active and food.section.name.downcase == "drinks") %>
             <div class="column is-one-third">
@@ -298,6 +306,7 @@
                     <p class="has-text-weight-bold has-text-centered">Allergies: <%= food.allergens %></p>
                   </div>
                 </div>
+                <!-- Method call to create an action button that adds items to the orders page and allows for the user to pay -->
                 <footer class="card-footer">
                   <%= form_with model: @order, id: "add-order-" + food.id.to_s do |f| %>
                     <%= f.hidden_field :current_bill_id, value: @current_bill.id %>

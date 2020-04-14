@@ -12,6 +12,7 @@
             <p class="title">Return to Menu</p>
           </article>
         </div>
+        <!-- Form call to allow the user to be able to create a new row in the help database -->
         <div class="tile is-parent">
           <%= form_with model: @call, url:{controller: "menu", action: "create"}, id: "call-waiter" do |f| %>
             <%= f.hidden_field :table_id, value: current_user.table.id %>
@@ -46,17 +47,20 @@
         </tr>
       </thead>
       <tbody>
-        <% @orders.each do |order| %>
+      <!-- For loop to display all the food items in the order database -->
+      <% @orders.each do |order| %>
           <tr>
             <td><%= order.food.name %></td>
             <td><%= order.requests.camelcase %></td>
             <td><%= order.food.price %></td>
             <td><%= order.status.name.camelcase %></td>
+            <!-- Method call to cancel the selected product from being completed -->
             <td><%= link_to 'Cancel', order_path(order), method: :delete, data: { confirm: 'Are you sure?' }, :class => "button is-danger" %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
+    <!-- Form that calls the Stripe payment method that is hosted by them. -->
     <p class="title">Total Price: £ <%= number_with_precision(@current_bill.total_price, precision: 2) %></p>
     <%= form_tag create_payment_method_path, id: "billing-create-payment-method" do  %>
       <%= link_to "Pay now", add_payment_method_path, remote: true, class: "button" %>

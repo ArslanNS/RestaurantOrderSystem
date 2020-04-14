@@ -9,6 +9,7 @@
         You're Seated at Table: <%= current_user.table.number %>
       </h2>
       <div class="tile is-ancestor">
+        <!-- Form call to allow the user to be able to create a new row in the help database -->
         <div class="tile is-parent">
           <%= form_with model: @call, url: {controller: "menu", action: "create"}, id: "call-waiter" do |f| %>
             <%= f.hidden_field :table_id, value: current_user.table.id %>
@@ -27,6 +28,7 @@
   <div class="container">
     <div class="tile is-ancestor">
         <div class="tile is-parent">
+          <!-- Makes the tile clickable as it is not a button object originally. -->
           <article class="food-button tile is-child notification is-light" onclick="location.href='/menu';" style="cursor: pointer">
             <div class="columns">
               <div class="column food-text is-5-desktop is-4-widescreen">
