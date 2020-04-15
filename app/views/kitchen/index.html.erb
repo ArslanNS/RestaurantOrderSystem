@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="refresh" content="5">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kitchen dashboard</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,6 +38,16 @@
     </div>
   </div>
   </div>
+  <div class="navbar-end">
+      <div class="navbar-item">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger") %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </nav>
 <!-- END NAV -->
 <div class="container">
@@ -51,20 +62,20 @@
           <li><%= link_to 'Menu', dashboard_foods_path %></li>
           <li><a class="is-active">Kitchen</a></li>
         </ul>
-        <p class="menu-label">
-          Administration
-        </p>
-        <ul class="menu-list">
-          <li><a href="/dashboard/employee">Employee Management</a></li>
-        </ul>
+        <% if current_user.email == "admin1@gmail.com" %>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li><a href="/dashboard/employee">Employee Management</a></li>
+          </ul>
+        <% end %>
         <p class="menu-label">
           Transactions
         </p>
         <ul class="menu-list">
-          <li><a>Payments</a></li>
-          <li><a>Transfers</a></li>
-          <li><a>Balance</a></li>
-          <li><a>Reports</a></li>
+          <li><a>Payments (WIP)</a></li>
+          <li><a>Balance (WIP)</a></li>
         </ul>
       </aside>
     </div>
@@ -81,19 +92,9 @@
           </div>
         </div>
       </section>
-      <section class="info-tiles">
-        <div class="tile is-ancestor has-text-centered">
-          <div class="tile is-parent">
-            <article class="tile is-child box">
-              <p class="title"><% @orders.count %></p>
-              <p class="subtitle">Orders</p>
-            </article>
-          </div>
-        </div>
-      </section>
       <div class="table-container">
         <section class="info-tiles">
-          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+          <table class="table is-striped is-fullwidth is-hoverable">
             <thead>
               <tr>
                 <th>Table</th>
@@ -103,38 +104,40 @@
               </tr>
             </thead>
             <tbody>
-            <%@tables.each do |table| %>
+            <%@tables.each do |table| %>      <!--For each table-->
               <%@orders = table.orders %>
-              <%@orders.each do |order| %>
-                <%next if order.status.name == "served" %>
-                <%next if order.status.name == "cancelled" %>
+              <%@orders.each do |order| %>    <!--For each table's orders-->
+                <%next if order.status.name == "served" %>    <!--Ignore if it has been served-->
+                <%next if order.status.name == "cancelled" %> <!--Ignore if it has been cancelled-->
                 <tr>
-                  <%= form_with model: order, url: '/dashboard/kitchen/'+order.id.to_s, id: "move-order-"+order.id.to_s do |f| %>
+                  <%= form_with model: order, url: '/dashboard/kitchen/'+order.id.to_s, id: "move-order-"+order.id.to_s do |f| %>   <!--Define a form to advance order status-->
                     <%= f.hidden_field :id, value: order.id %>
                   <% end %>
                   <td><%= order.table.name %></td>
                   <td>
-                    <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "confirmed"; order.food.name end%></a>
-                    <div id="collapse<%= if order.status.name == "confirmed"; order.id.to_s end%>" style="display:none">
+                    <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "confirmed"; order.food.name end%></a>      <!--Create link which expands following div-->
+                    <div id="collapse<%= if order.status.name == "confirmed"; order.id.to_s end%>" style="display:none">      <!--Create collapsible div with additional order info-->
                       <h4>Notes: <%= order.requests %></h4>
                       <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
-                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
+                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>    <!--Create button to progress order-->
                     </div>
                   </td>
+                  <!--Repeats above for 'cooking' orders-->
                   <td>
                     <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "cooking"; order.food.name end%></a>
                     <div id="collapse<%= if order.status.name == "cooking"; order.id.to_s end %>" style="display:none">
                       <h4>Notes: <%= order.requests %></h4>
                       <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
-                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
+                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Serve order</button>
                     </div>
                   </td>
+                  <!--Repeats above for 'ready' orders-->
                   <td>
                     <a href="#collapse<%= order.id.to_s %>"><%= if order.status.name == "ready"; order.food.name end%></a>
                     <div id="collapse<%= if order.status.name == "ready"; order.id.to_s end %>" style="display:none">
                       <h4>Notes: <%= order.requests %></h4>
                       <h4>Ordered: <%= order.created_at.to_s.split(" ")[1] %></h4>
-                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Progress order</button>
+                      <button class="button is-success" onclick="document.getElementById('move-order-<%= order.id.to_s %>').submit();" style="cursor: pointer">Close order</button>
                     </div>
                   </td>
                 </tr>

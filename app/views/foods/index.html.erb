@@ -1,3 +1,4 @@
+<!-- New food creation html file, allow multiple to be created, kitchen management, admin only-->
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   <!-- Bulma Version 0.8.x-->
-  <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css"/>
   <link rel="stylesheet" type="text/css" href="../css/admin.css">
 </head>
 
@@ -31,6 +32,16 @@
       </div>
     </div>
   </div>
+  <div class="navbar-end">
+      <div class="navbar-item">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger") %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </nav>
 <!-- END NAV -->
 <div class="container">
@@ -45,20 +56,20 @@
           <li><a class="is-active">Menu</a></li>
           <li><a href="/dashboard/kitchen">Kitchen</a></li>
         </ul>
-        <p class="menu-label">
-          Administration
-        </p>
-        <ul class="menu-list">
-          <li><a href="/dashboard/employee">Employee Management</a></li>
-        </ul>
+        <% if current_user.email == "admin1@gmail.com" %>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li><a href="/dashboard/employee">Employee Management</a></li>
+          </ul>
+        <% end %>
         <p class="menu-label">
           Transactions
         </p>
         <ul class="menu-list">
-          <li><a>Payments</a></li>
-          <li><a>Transfers</a></li>
-          <li><a>Balance</a></li>
-          <li><a>Reports</a></li>
+          <li><a>Payments (WIP)</a></li>
+          <li><a>Balance (WIP)</a></li>
         </ul>
       </aside>
     </div>
@@ -81,6 +92,7 @@
             <article class="tile is-child box">
               <p class="title"><%= @foods.count %></p>
               <p class="subtitle">Menu items</p>
+              <%= link_to 'Add New Food', new_dashboard_food_path, :class => "button is-info is-normal"%>
             </article>
           </div>
         </div>
@@ -89,39 +101,40 @@
 
       <div class="table-container">
         <section class="info-tiles">
-        <table class="table is-bordered is-striped is-fullwidth is-hoverable">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Section</th>
-            <th>Description</th>
-            <th>Allergens</th>
-            <th>Calories</th>
-            <th>Price</th>
-            <th>Shown on menu</th>
-          </tr>
-          </thead>
-
-          <% @foods.each do |food| %>
+          <table class="table is-striped is-fullwidth is-hoverable">
+            <thead>
             <tr>
-              <td><%= food.name %></td>
-              <td><%= food.section.name %></td>
-              <td><%= food.description %></td>
-              <td><%= food.allergens %></td>
-              <td><%= food.calories %></td>
-              <td><%= food.price %></td>
-              <td><%= food.active %></td>
-              <td><%= link_to 'Show', dashboard_food_path(food) %></td>
-              <td><%= link_to 'Edit', edit_dashboard_food_path(food) %></td>
-              <td><%= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <th>Name</th>
+              <th>Section</th>
+              <th>Description</th>
+              <th>Allergens</th>
+              <th>Calories</th>
+              <th>Price</th>
+              <th>Visibility</th>
+              <th>Actions</th>
             </tr>
-          <% end %>
-        </table>
+            </thead>
+            <% @foods.each do |food| %>
+              <tr>
+                <td><%= food.name %></td>
+                <td><%= food.section.name %></td>
+                <td><%= food.description %></td>
+                <td><%= food.allergens %></td>
+                <td><%= food.calories %></td>
+                <td><%= food.price %></td>
+                <td><%= food.active %></td>
+                <td>
+                  <div class="buttons">
+                    <%= link_to 'Show', dashboard_food_path(food), :class => "button is-link is-small is-success" %>
+                    <%= link_to 'Edit', edit_dashboard_food_path(food), :class => "button is-link is-small" %>
+                    <%= link_to 'Delete', dashboard_food_path(food), method: :delete, data: {confirm: 'Are you sure?'}, :class => "button is-link is-small is-danger" %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </table>
         </section>
       </div>
-
-      <br>
-      <%= link_to 'New Food', new_dashboard_food_path %>
     </div>
   </div>
 </div>

@@ -1,0 +1,46 @@
+// Place all the styles related to the landing controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* Modifies videoholder to present an item that occupies all the space */
+.video-background-holder video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* Modifies Positions the content relative to the parent container */
+.video-background-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Applies the coloured overlay over the video below the text */
+.video-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Replaces the content container with a gif rather than being empty */
+.video-background-holder{
+  background-image: url('landing.gif');
+  background-size: cover;
+  height: 100vh;
+  padding:0;
+  margin:0;
+}

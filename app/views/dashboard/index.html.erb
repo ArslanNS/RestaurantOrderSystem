@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="refresh" content="5">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin dashboard</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,8 +31,19 @@
     </div>
     <div id="navMenu" class="navbar-menu">
       <div class="navbar-start">
+      </div>
     </div>
   </div>
+  <div class="navbar-end">
+      <div class="navbar-item">
+        <!--  User sign out buttons -->
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger") %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </nav>
 <!-- END NAV -->
@@ -47,20 +59,21 @@
           <li><%= link_to 'Menu', dashboard_foods_path %></li>
           <li><a href="/dashboard/kitchen">Kitchen</a></li>
         </ul>
-        <p class="menu-label">
-          Administration
-        </p>
-        <ul class="menu-list">
-          <li><a href="/dashboard/employee">Employee Management</a></li>
-        </ul>
+        <!--  Show fields if particular user signed in -->
+        <% if current_user.email == "admin1@gmail.com" %>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li><a href="/dashboard/employee">Employee Management</a></li>
+          </ul>
+        <% end %>
         <p class="menu-label">
           Transactions
         </p>
         <ul class="menu-list">
-          <li><a>Payments</a></li>
-          <li><a>Transfers</a></li>
-          <li><a>Balance</a></li>
-          <li><a>Reports</a></li>
+          <li><a>Payments (WIP)</a></li>
+          <li><a>Balance (WIP)</a></li>
         </ul>
       </aside>
     </div>
@@ -81,19 +94,25 @@
         <div class="tile is-ancestor has-text-centered">
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title has-text-danger">3</p>
-              <p class="subtitle has-text-danger">Pending issues</p>
+              <p class="title has-text-danger"><%= @calls.count %></p>
+              <p class="subtitle has-text-danger">Calls</p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title has-text-danger"><%= @orders.count %></p>
+              <p class="subtitle has-text-danger">Pending orders</p>
             </article>
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
               <p class="title has-text-success">17</p>
-              <p class="subtitle has-text-success">Completed issues</p>
+              <p class="subtitle has-text-success">Completed orders</p>
             </article>
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title">12</p>
+              <p class="title"><%= @users.count %></p>
               <p class="subtitle">Employees active</p>
             </article>
           </div>
@@ -102,7 +121,7 @@
       <p id="notice"><%= notice %></p>
       <div class="table-container">
         <section class="info-tiles">
-          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+          <table class="table is-striped is-fullwidth is-hoverable">
             <h1 class="subtitle is-5">Calls:</h1>
             <thead>
             <tr>
@@ -112,6 +131,7 @@
               <th>Acknowledge Call</th>
             </tr>
             </thead>
+            <!--  Call handling -->
             <% @calls.each do |call| %>
               <%= form_with model: call, url: '/dashboard/'+call.id.to_s, id: "ack-call-"+call.id.to_s do |f| %>
                 <%= f.hidden_field :id, value: call.id %>
@@ -128,9 +148,10 @@
                 </td>
                 <td>
                   <% if call.attended %>
-                    <button class="button" style="cursor: pointer" disabled>Acknowledge</button>
+                  <!--  Bulma colour formatting -->
+                    <button class="button is-danger" style="cursor: pointer" disabled>Acknowledge</button>
                   <% else %>
-                    <button class="button" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">Acknowledge</button>
+                    <button class="button is-danger" onclick="document.getElementById('ack-call-<%= call.id.to_s %>').submit();" style="cursor: pointer">Acknowledge</button>
                   <% end %>
                 </td>
               </tr>
@@ -141,9 +162,10 @@
 
       <div class="table-container">
         <section class="info-tiles">
-          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+          <table class="table is-striped is-fullwidth is-hoverable">
             <h1 class="subtitle is-5">Current Orders:</h1>
             <thead>
+              <!--  Table containing order information -->
               <tr>
                 <th>Order ID</th>
                 <th>Table number</th>
@@ -160,7 +182,7 @@
                 <td><%= order.table.name %></td>
                 <td><%= order.food.name %></td>
                 <td><%= order.requests %></td>
-                <td><span class="tag is-link"><%= order.status.name %></span></td>
+                <td><span class="tag is-info is-medium"><%= order.status.name %></span></td>
                 <td><%= order.created_at %></td>
               </tr>
             <% end %>

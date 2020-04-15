@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="refresh" content="5">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin dashboard</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,6 +32,16 @@
       </div>
     </div>
   </div>
+  <div class="navbar-end">
+      <div class="navbar-item">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger") %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </nav>
 <!-- END NAV -->
 <div class="container">
@@ -55,10 +66,8 @@
           Transactions
         </p>
         <ul class="menu-list">
-          <li><a>Payments</a></li>
-          <li><a>Transfers</a></li>
-          <li><a>Balance</a></li>
-          <li><a>Reports</a></li>
+          <li><a>Payments (WIP)</a></li>
+          <li><a>Balance (WIP)</a></li>
         </ul>
       </aside>
     </div>
@@ -81,41 +90,36 @@
             <article class="tile is-child box">
               <p class="title"><%= @users.count %></p>
               <p class="subtitle">Employees</p>
+              <!--  If user role admin, allow adding new employee -->
+              <% if has_role?(:admin)%>
+                <%= link_to 'Add New Employee', new_user_registration_path, :class => "button is-info is-normal" %>
+              <% end %>
             </article>
           </div>
         </div>
       </section>
       <p id="notice"><%= notice %></p>
-
       <div class="table-container">
         <section class="info-tiles">
-          <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+          <table class="table is-striped is-fullwidth is-hoverable">
             <thead>
             <tr>
               <th>Email</th>
-              <th>Password</th>
               <th>Role</th>
+              <th>Actions</th>
             </tr>
             </thead>
-
             <% @users.each do |user| %>
               <tr>
                 <td><%= user.email %></td>
-                <td><%= user.encrypted_password %></td>
-                <td><%= user.roles.ids %></td>
-<!--                <td><%#= link_to 'Show', dashboard_user_path(user) %></td>-->
-<!--                <td><%#= link_to 'Edit', edit_dashboard_food_path(food) %></td>-->
-<!--                <td><%#= link_to 'Destroy', dashboard_food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+                <td><%= user.roles.first.name %></td>
+                <!--  Edit roles, username, password, role etc. -->
+                <td><%= link_to 'Edit', edit_user_registration_path(user), :class => "button is-link is-small" %></td>
               </tr>
             <% end %>
           </table>
         </section>
       </div>
-
-      <br>
-      <% if has_role?(:admin)%>
-      <%= link_to 'New employee', new_user_registration_path %>
-      <% end %>
     </div>
   </div>
 </div>

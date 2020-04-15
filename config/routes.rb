@@ -1,17 +1,26 @@
+# Handle routing for web app
 Rails.application.routes.draw do
   get 'orders/index'
   devise_for :users
 
-  root 'welcome#index'
+  root 'landing#landing'
 
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  resources :landing, only: [:landing]
+  resources :welcome, only: [:index]
   resources :menu, only: [:index, :create, :update]
   resources :orders, only: [:index, :create, :destroy]
+  resources :bills, only: [:index, :create, :destroy]
 
   resources :dashboard, only: [:index, :update]
   namespace :dashboard do
     resources :foods, controller: '/foods'
     resources :kitchen, controller: '/kitchen'
     resources :employee, controller: '/employee'
+    resources :manager, controller: '/manager'
   end
 
   get '/card/new' => 'billing#new_card', as: :add_payment_method, xhr:true

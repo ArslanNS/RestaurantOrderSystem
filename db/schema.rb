@@ -10,15 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_205026) do
+ActiveRecord::Schema.define(version: 2020_04_09_104826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bills", force: :cascade do |t|
+    t.bigint "table_id", null: false
+    t.float "total_price"
+    t.boolean "paid", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["table_id"], name: "index_bills_on_table_id"
+  end
+
   create_table "calls", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "attended"
+    t.boolean "attended", default: false
     t.bigint "table_id", null: false
     t.index ["table_id"], name: "index_calls_on_table_id"
   end
@@ -51,6 +60,8 @@ ActiveRecord::Schema.define(version: 2020_02_27_205026) do
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bill_id"
+    t.index ["bill_id"], name: "index_orders_on_bill_id"
     t.index ["food_id"], name: "index_orders_on_food_id"
     t.index ["status_id"], name: "index_orders_on_status_id"
     t.index ["table_id"], name: "index_orders_on_table_id"
@@ -83,6 +94,8 @@ ActiveRecord::Schema.define(version: 2020_02_27_205026) do
     t.integer "number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "current_bill_id"
+    t.index ["current_bill_id"], name: "index_tables_on_current_bill_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -107,10 +120,13 @@ ActiveRecord::Schema.define(version: 2020_02_27_205026) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "bills", "tables"
   add_foreign_key "calls", "tables"
   add_foreign_key "foods", "sections"
+  add_foreign_key "orders", "bills"
   add_foreign_key "orders", "foods"
   add_foreign_key "orders", "statuses"
   add_foreign_key "orders", "tables"
+  add_foreign_key "tables", "bills", column: "current_bill_id"
   add_foreign_key "users", "tables"
 end
